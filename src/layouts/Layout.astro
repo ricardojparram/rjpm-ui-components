@@ -1,0 +1,33 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body
+    class="text-slate-800 dark:text-slate-100 flex flex-col min-h-dvh bg-slate-100 dark:bg-slate-900"
+  >
+    <div
+      class="absolute z-[-1] h-full w-full bg-[radial-gradient(#c1c4c9_1px,transparent_1px)] [background-size:30px_30px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] dark:bg-[radial-gradient(#454545_1px,transparent_1px)]"
+    >
+    </div>
+
+    <header class="font-extrabold text-center text-6xl py-5">rjpm.ui</header>
+    <main class="">
+      <slot />
+    </main>
+    <footer class="h-28 mt-auto">ekisde</footer>
+  </body>
+</html>
