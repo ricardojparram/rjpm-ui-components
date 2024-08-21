@@ -1,0 +1,23 @@
+---
+import ArrowOutward from "../components/icons/ArrowOutward.astro";
+interface Props {
+  title: string;
+  href?: string;
+}
+
+const { href = "#", title } = Astro.props;
+---
+
+<article
+  class="relative w-[300px] h-[300px] bg-slate-950 border-2 border-slate-800 rounded-xl"
+>
+  <header
+    class="absolute top-0 w-full p-5 flex justify-between items-center text-slate-300"
+  >
+    <a href={href}><h3 class="font-semibold">{title}</h3></a>
+    <a href={href}><ArrowOutward class="w-5 h-5" /></a>
+  </header>
+  <div class="flex items-center justify-center w-full h-full p-5">
+    <slot />
+  </div>
+</article>
