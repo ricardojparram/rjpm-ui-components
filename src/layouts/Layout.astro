@@ -17,17 +17,13 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body
-    class="text-slate-800 dark:text-slate-100 flex flex-col min-h-dvh bg-slate-100 dark:bg-slate-900"
+    class="text-slate-800 dark:text-slate-100 flex flex-col min-h-dvh bg-slate-100 dark:bg-slate-950"
   >
     <div
-      class="absolute z-[-1] h-full w-full bg-[radial-gradient(#c1c4c9_1px,transparent_1px)] [background-size:30px_30px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] dark:bg-[radial-gradient(#454545_1px,transparent_1px)]"
+      class="absolute top-0 z-[-2] h-screen w-screen bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(92,_91,_198,_0.3),rgba(255,255,255,0))]"
     >
     </div>
-
-    <header class="font-extrabold text-center text-6xl py-5">rjpm.ui</header>
-    <main class="">
-      <slot />
-    </main>
+    <slot />
     <footer class="h-28 mt-auto">ekisde</footer>
   </body>
 </html>
