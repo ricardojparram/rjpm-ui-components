@@ -1,17 +1,21 @@
 ---
 import ComponentCard from "../components/ComponentCard.astro";
+import Tailwindcss from "../components/icons/Tailwindcss.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="rjpm.ui">
-  <header class="font-extrabold text-center p-5">
-    <h1 class="text-6xl">rjpm.ui</h1>
-    <h2 class="text-3xl mt-4">
-      React components collection <br /> created with tailwindcss
+  <header class="text-center p-5 flex flex-col items-center">
+    <h2 class="text-4xl text-pretty mt-4 p-2 w-fit font-bold">
+      Easy to use component collection <br />
+      <span class="text-slate-400 text-xl"
+        >made with
+        <Tailwindcss class="h-4 text-slate-100 inline" alt="tailwindcss logo" />
+      </span>
     </h2>
   </header>
   <main class="flex flex-col items-center justify-center">
-    <section>
+    <!-- <section>
       <nav class="">
         <ul class="flex gap-4">
           <li>Buttons</li>
@@ -20,10 +24,8 @@ import Layout from "../layouts/Layout.astro";
           <li>Typography</li>
         </ul>
       </nav>
-    </section>
-    <section
-      class="w-full h-full max-w-[1000px] mt-12 flex flex-wrap justify-center gap-5"
-    >
+    </section> -->
+    <section class="w-full h-full mt-12 flex flex-wrap justify-center gap-5">
       <ComponentCard title="Gradient button">
         <button
           type="button"
