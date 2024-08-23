@@ -1,4 +1,7 @@
 ---
+import Github from "../components/icons/Github.astro";
+import Rjmpui from "../components/icons/Rjmpui.astro";
+
 interface Props {
   title: string;
 }
@@ -16,14 +19,37 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body
-    class="text-slate-800 dark:text-slate-100 flex flex-col min-h-dvh bg-slate-100 dark:bg-slate-950"
-  >
+  <body class="bg-slate-100 dark:bg-slate-950">
     <div
-      class="absolute top-0 z-[-2] h-screen w-screen bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(92,_91,_198,_0.3),rgba(255,255,255,0))]"
+      class="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(80%_120%_at_50%_50%,#000_50%,#06073394_70%,#0f0037_100%)]"
     >
     </div>
-    <slot />
-    <footer class="h-28 mt-auto">ekisde</footer>
+    <div
+      class="flex flex-col mx-auto max-w-[1000px] h-screen w-screen text-slate-800 dark:text-slate-100"
+    >
+      <header class="mt-5 px-7 flex justify-between items-center">
+        <h1
+          class="relative text-4xl font-extrabold bg-gradient-to-r from-sky-400 via-indigo-500 to-violet-500 bg-clip-text text-transparent"
+        >
+          <a href="/">rjpm.ui</a>
+        </h1>
+        <span
+          ><a
+            href="https://github.com/ricardojparram/rjpm-ui-components"
+            target="_blank"
+            rel="noopener noreferrer"><Github class="w-7 h-7" /></a
+          ></span
+        >
+      </header>
+      <slot />
+      <footer class="p-2 mt-auto text-center text-gray-400">
+        Made by <a
+          href="https://github.com/ricardojparram"
+          target="_blank"
+          class="bg-gradient-to-tr font-bold from-sky-400 to-violet-400 bg-clip-text text-transparent hover:bg-gradient-to-tl"
+          >@ricardojparram</a
+        > - 2024
+      </footer>
+    </div>
   </body>
 </html>
