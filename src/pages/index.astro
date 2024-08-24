@@ -1,9 +1,9 @@
 ---
 import ComponentCard from "../components/ComponentCard.astro";
-import BorderGradientButton from "../components/BorderGradientButton";
-import ButtonBgGradient from "../components/ButtonBgGradient";
+import GradientBorderButton from "../components/GradientBorderButton";
+import GradientHoverButton from "../components/GradientHoverButton";
 import GradientLoader from "../components/GradientLoader";
-import BackgroundGradientButton from "../components/BackgroundGradientButton";
+import AnimatedBackgroundButton from "../components/AnimatedBackgroundButton";
 import Tailwindcss from "../components/icons/Tailwindcss.astro";
 import Layout from "../layouts/Layout.astro";
 ---
@@ -20,14 +20,14 @@ import Layout from "../layouts/Layout.astro";
   </header>
   <main class="flex flex-col items-center justify-center">
     <section class="w-full h-full mt-12 flex flex-wrap justify-center gap-5">
-      <ComponentCard title="Border gradient button">
-        <BorderGradientButton title="Hover me" shadow />
+      <ComponentCard title="Gradient border button">
+        <GradientBorderButton title="Hover me" shadow />
       </ComponentCard>
-      <ComponentCard title="Background animated button">
-        <ButtonBgGradient title="Hover me" />
+      <ComponentCard title="Gradient hover button">
+        <GradientHoverButton title="Hover me" />
       </ComponentCard>
-      <ComponentCard title="Background gradient button">
-        <BackgroundGradientButton />
+      <ComponentCard title="Animated background button">
+        <AnimatedBackgroundButton />
       </ComponentCard>
       <ComponentCard title="Gradient loader">
         <GradientLoader />
