@@ -1,6 +1,5 @@
 ---
 import Github from "../components/icons/Github.astro";
-import Rjmpui from "../components/icons/Rjmpui.astro";
 
 interface Props {
   title: string;
@@ -28,9 +27,11 @@ const { title } = Astro.props;
     </style>
   </head>
   <body class="bg-slate-100 dark:bg-slate-950">
-    <div
-      class="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(80%_120%_at_50%_50%,#000_50%,#06073394_70%,#0f0037_100%)]"
-    >
+    <div class="fixed -z-10">
+      <div
+        class="absolute inset-0 -z-10 h-screen w-screen items-center px-5 py-24 [background:radial-gradient(80%_120%_at_50%_50%,rgba(0,0,0,0)_50%,#00012b85_70%,#020006_100%)]"
+      >
+      </div>
     </div>
     <div
       class="flex flex-col mx-auto max-w-[1100px] h-screen w-screen text-slate-800 dark:text-slate-200"
