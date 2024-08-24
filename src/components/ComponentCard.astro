@@ -9,15 +9,15 @@ const { href = "#", title } = Astro.props;
 ---
 
 <article
-  class="relative w-[300px] h-[300px] bg-slate-950 border-2 border-slate-800 rounded-xl"
+  class="relative w-[330px] h-[330px] bg-slate-950 border-2 border-slate-800 rounded-xl hover:border-slate-700 group transition-colors duration-200"
 >
   <header
-    class="absolute top-0 w-full p-5 flex justify-between items-center text-slate-300"
+    class="absolute top-0 w-full p-5 flex justify-between items-center text-slate-300 group-hover:text-slate-200 transition-colors duration-200"
   >
     <a href={href}><h3 class="font-semibold">{title}</h3></a>
     <a href={href}><ArrowOutward class="w-5 h-5" /></a>
   </header>
-  <div class="flex items-center justify-center w-full h-full p-5">
+  <div class="flex items-center justify-center w-full h-full p-5 font-sans">
     <slot />
   </div>
 </article>
