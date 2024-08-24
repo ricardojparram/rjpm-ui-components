@@ -18,6 +18,14 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Major+Mono+Display&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+      body {
+        font-family: "JetBrains Mono", monospace;
+        font-weight: 400;
+        font-style: normal;
+      }
+    </style>
   </head>
   <body class="bg-slate-100 dark:bg-slate-950">
     <div
@@ -25,7 +33,7 @@ const { title } = Astro.props;
     >
     </div>
     <div
-      class="flex flex-col mx-auto max-w-[1000px] h-screen w-screen text-slate-800 dark:text-slate-200"
+      class="flex flex-col mx-auto max-w-[1100px] h-screen w-screen text-slate-800 dark:text-slate-200"
     >
       <header class="mt-5 px-7 flex justify-between items-center">
         <h1
@@ -37,7 +45,7 @@ const { title } = Astro.props;
           ><a
             href="https://github.com/ricardojparram/rjpm-ui-components"
             target="_blank"
-            rel="noopener noreferrer"><Github class="w-7 h-7" /></a
+            rel="noopener noreferrer"><Github class="w-7 h-7 text-white" /></a
           ></span
         >
       </header>
