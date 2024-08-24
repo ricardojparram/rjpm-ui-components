@@ -1,20 +1,20 @@
 ---
 import ComponentCard from "../components/ComponentCard.astro";
-import { GradientButton } from "../components/GradientButton";
-import { ButtonBgGradient } from "../components/ButtonBgGradient";
+import GradientButton from "../components/GradientButton";
+import ButtonBgGradient from "../components/ButtonBgGradient";
 import Tailwindcss from "../components/icons/Tailwindcss.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="rjpm.ui">
+<Layout title="rjpm.ui - Easy-to-Use UI Components for Tailwind CSS and React">
   <header class="text-center p-5 flex flex-col items-center">
-    <h2 class="text-4xl text-pretty mt-4 p-2 w-fit font-bold">
+    <h1 class="text-4xl text-pretty mt-4 p-2 w-fit font-bold">
       Easy to use component collection <br />
       <span class="text-slate-400 text-xl"
         >made with
         <Tailwindcss class="h-4 text-slate-100 inline" alt="tailwindcss logo" />
       </span>
-    </h2>
+    </h1>
   </header>
   <main class="flex flex-col items-center justify-center">
     <!-- <section>
@@ -40,9 +40,3 @@ import Layout from "../layouts/Layout.astro";
     </section>
   </main>
 </Layout>
-<script>
-  const asd = () => {
-    // window.location = "/asdgdsag";
-    console.log(window.location);
-  };
-</script>
