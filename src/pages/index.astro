@@ -1,5 +1,7 @@
 ---
 import ComponentCard from "../components/ComponentCard.astro";
+import { GradientButton } from "../components/GradientButton";
+import { ButtonBgGradient } from "../components/ButtonBgGradient";
 import Tailwindcss from "../components/icons/Tailwindcss.astro";
 import Layout from "../layouts/Layout.astro";
 ---
@@ -27,35 +29,20 @@ import Layout from "../layouts/Layout.astro";
     </section> -->
     <section class="w-full h-full mt-12 flex flex-wrap justify-center gap-5">
       <ComponentCard title="Gradient button">
-        <button
-          type="button"
-          class="border-2 border-white bg-red-500 w-full rounded">Alo</button
-        >
+        <GradientButton client:load title="Hover me" shadow />
       </ComponentCard>
-      <ComponentCard title="Gradient button">
-        <button
-          type="button"
-          class="border-2 border-white bg-red-500 w-full rounded">Alo</button
-        >
+      <ComponentCard title="Background animated button">
+        <ButtonBgGradient title="Hover me" shadow />
       </ComponentCard>
-      <ComponentCard title="Gradient button">
-        <button
-          type="button"
-          class="border-2 border-white bg-red-500 w-full rounded">Alo</button
-        >
-      </ComponentCard>
-      <ComponentCard title="Gradient button">
-        <button
-          type="button"
-          class="border-2 border-white bg-red-500 w-full rounded">Alo</button
-        >
-      </ComponentCard>
-      <ComponentCard title="Gradient button">
-        <button
-          type="button"
-          class="border-2 border-white bg-red-500 w-full rounded">Alo</button
-        >
+      <ComponentCard title="Gradient text">
+        <p class="text-gray-400">Comming soon...</p>
       </ComponentCard>
     </section>
   </main>
 </Layout>
+<script>
+  const asd = () => {
+    // window.location = "/asdgdsag";
+    console.log(window.location);
+  };
+</script>
