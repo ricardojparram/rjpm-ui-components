@@ -1,7 +1,9 @@
 ---
 import ComponentCard from "../components/ComponentCard.astro";
-import GradientButton from "../components/GradientButton";
+import BorderGradientButton from "../components/BorderGradientButton";
 import ButtonBgGradient from "../components/ButtonBgGradient";
+import GradientLoader from "../components/GradientLoader";
+import BackgroundGradientButton from "../components/BackgroundGradientButton";
 import Tailwindcss from "../components/icons/Tailwindcss.astro";
 import Layout from "../layouts/Layout.astro";
 ---
@@ -17,22 +19,18 @@ import Layout from "../layouts/Layout.astro";
     </h1>
   </header>
   <main class="flex flex-col items-center justify-center">
-    <!-- <section>
-      <nav class="">
-        <ul class="flex gap-4">
-          <li>Buttons</li>
-          <li>Cards</li>
-          <li>Badge</li>
-          <li>Typography</li>
-        </ul>
-      </nav>
-    </section> -->
     <section class="w-full h-full mt-12 flex flex-wrap justify-center gap-5">
-      <ComponentCard title="Gradient button">
-        <GradientButton client:load title="Hover me" shadow />
+      <ComponentCard title="Border gradient button">
+        <BorderGradientButton title="Hover me" shadow />
       </ComponentCard>
       <ComponentCard title="Background animated button">
-        <ButtonBgGradient title="Hover me" shadow />
+        <ButtonBgGradient title="Hover me" />
+      </ComponentCard>
+      <ComponentCard title="Background gradient button">
+        <BackgroundGradientButton />
+      </ComponentCard>
+      <ComponentCard title="Gradient loader">
+        <GradientLoader />
       </ComponentCard>
       <ComponentCard title="Gradient text">
         <p class="text-gray-400">Comming soon...</p>
