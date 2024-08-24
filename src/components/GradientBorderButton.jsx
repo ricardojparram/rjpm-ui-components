@@ -1,4 +1,4 @@
-const BorderGradientButton = ({
+const GradientBorderButton = ({
   title = "Example",
   shadow = false,
   ...props
@@ -22,4 +22,4 @@ const BorderGradientButton = ({
     </button>
   );
 };
-export default BorderGradientButton;
+export default GradientBorderButton;

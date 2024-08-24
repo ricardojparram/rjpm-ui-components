@@ -1,4 +1,4 @@
-const BackgroundGradientButton = () => {
+const AnimatedBackgroundButton = () => {
   return (
     <button class="flex items-center justify-center px-7 py-3 relative overflow-hidden rounded-full transition-all duration-100 font-bold cursor-pointer text-slate-200 [box-shadow: 0 0px 7px -5px rgba(0, 0, 0, 0.5);] active:scale-90 hover:scale-95 ring-slate-200 bg-slate-900 border-2 border-slate-600 focus:ring-2 focus:ring-slate-400">
       <span class="z-20">Click me</span>
@@ -9,4 +9,4 @@ const BackgroundGradientButton = () => {
   );
 };
 
-export default BackgroundGradientButton;
+export default AnimatedBackgroundButton;
