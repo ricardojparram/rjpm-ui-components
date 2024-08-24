@@ -1,8 +1,4 @@
-export const GradientButton = ({
-  title = "Example",
-  shadow = false,
-  ...props
-}) => {
+const GradientButton = ({ title = "Example", shadow = false, ...props }) => {
   return (
     <button
       className="relative inline-flex group/gradientBtn"
@@ -22,3 +18,4 @@ export const GradientButton = ({
     </button>
   );
 };
+export default GradientButton;
