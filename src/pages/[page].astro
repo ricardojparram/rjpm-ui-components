@@ -1,0 +1,74 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Code } from "astro:components";
+import { COMPONENTS } from "../data/components";
+import { getFileContent } from "../util/getFileContent";
+import CopyIcon from "../components/icons/Copy.astro";
+import CopyIconCheck from "../components/icons/CopyCheck.astro";
+
+export function getStaticPaths() {
+  const pages = COMPONENTS.map((item) => ({ params: { page: item.page } }));
+  return pages;
+}
+const { page } = Astro.params;
+const [ITEM] = COMPONENTS.filter((item) => item.page === page);
+const code = await getFileContent(ITEM.path);
+---
+
+<Layout title={`rjpm.ui - ${ITEM.title}`}>
+  <pre></pre>
+  <header class="text-center p-5 flex flex-col items-center">
+    <h1 class="text-4xl text-pretty mt-4 p-2 w-fit font-bold">
+      {ITEM.title}
+    </h1>
+  </header>
+  <main class="max-w-[1000px] w-full mx-auto p-4 flex flex-col gap-10">
+    <section
+      class="min-h-[180px] relative border-2 border-slate-800 rounded-xl hover:border-slate-700 group transition-colors duration-200 flex items-center justify-center p-5 font-sans"
+    >
+      <div
+        class="absolute h-full w-full bg-[radial-gradient(rgb(30,41,59)_1.5px,transparent_1px)] [background-size:20px_20px] [mask-image:radial-gradient(ellipse_47%_47%_at_50%_50%,#000_70%,transparent_100%)] transition-colors"
+      >
+      </div>
+      <ITEM.component />
+    </section>
+    <section
+      class="min-h-[180px] relative border-2 border-slate-800 rounded-xl hover:border-slate-700 group/code transition-colors duration-200 flex items-center justify-center font-sans"
+    >
+      <button
+        class="opacity-0 absolute top-5 right-5 z-20 group-hover/code:opacity-100 transition-all cursor-pointer rounded-md border-2 border-slate-700 bg-transparent hover:bg-slate-900 active:scale-90 p-2"
+        id="copyButton"
+        data-code={code}
+      >
+        <CopyIcon className="h-4 w-4 text-slate-400 copy" />
+        <CopyIconCheck className="h-4 w-4 text-slate-200 hidden check" />
+      </button>
+      <Code
+        lang="js"
+        class="rounded-xl p-5"
+        code={code}
+        theme="catppuccin-mocha"
+      />
+    </section>
+  </main>
+</Layout>
+<script>
+  const $copyButton = document.querySelector("#copyButton");
+  const $copyIcon = document.querySelector("#copyButton .copy");
+  const $copyCheckIcon = document.querySelector("#copyButton .check");
+
+  $copyButton.addEventListener("click", function () {
+    navigator.clipboard.writeText($copyButton.dataset.code);
+    $copyIcon.classList.add("hidden");
+    $copyCheckIcon.classList.remove("hidden");
+    setTimeout(() => {
+      $copyIcon.classList.remove("hidden");
+      $copyCheckIcon.classList.add("hidden");
+    }, 3000);
+  });
+</script>
+<style>
+  pre {
+    background-color: rgb(2 6 23) !important;
+  }
+</style>
