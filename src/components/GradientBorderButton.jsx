@@ -1,5 +1,5 @@
 const GradientBorderButton = ({
-  title = "Example",
+  title = "Hover me",
   shadow = false,
   ...props
 }) => {
