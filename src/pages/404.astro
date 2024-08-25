@@ -1,0 +1,43 @@
+<main
+  class="h-screen fixed w-full flex flex-col justify-center items-center bg-slate-950"
+>
+  <div
+    class="absolute inset-0 -z-10 h-screen w-screen items-center px-5 py-24 [background:radial-gradient(80%_120%_at_50%_50%,rgba(0,0,0,0)_50%,#00012b85_70%,#020006_100%)]"
+  >
+  </div>
+  <h1 class="text-9xl font-extrabold text-white tracking-widest">404</h1>
+  <div
+    class="font-extrabold bg-gradient-to-r from-sky-400 via-indigo-500 to-violet-500 text-white px-2 text-sm rounded rotate-12 absolute"
+  >
+    Page Not Found
+  </div>
+  <button class="mt-5">
+    <a
+      class="relative inline-block text-sm font-medium text-[#FF6A3D] group active:text-orange-500 focus:outline-none focus:ring"
+    >
+      <span
+        class="absolute inset-0 transition-transform translate-x-0.5 translate-y-0.5 bg-[#FF6A3D] group-hover:translate-y-0 group-hover:translate-x-0"
+      ></span>
+
+      <a class="relative inline-flex group/gradientBtn" href="/">
+        <div
+          class="absolute transition-all duration-1000 opacity-50 inset-1 bg-gradient-to-r from-sky-400 via-indigo-500 to-violet-500 rounded-xl blur-xl group-hover/gradientBtn:opacity-80 group-hover/gradientBtn:duration-200"
+        >
+        </div>
+        <div
+          class="relative inline-flex rounded-full p-[2px] overflow-hidden transition-transform group-hover/gradientBtn:scale-95"
+        >
+          <div
+            class="absolute transition-all duration-1000 -inset-[300%] animate-[spin_2s_linear_infinite] hover:scale-95 bg-[conic-gradient(from_90deg_at_50%_50%,rgb(56,189,248)_40%,rgb(56,189,248)_40%,#8b5cf6_100%)] blur-lg group-hover/gradientBtn:duration-200"
+          >
+          </div>
+          <span
+            class={`relative inline-flex items-center justify-center px-8 py-3 font-bold text-white transition-all duration-200 backdrop-blur-3xl bg-slate-900 rounded-3xl focus:outline-none focus:ring-2 focus:ring-cyan-400`}
+          >
+            Go home
+          </span>
+        </div>
+      </a>
+    </a>
+  </button>
+</main>
