@@ -1,7 +1,8 @@
-import GradientBorderButton from "../components/GradientBorderButton";
-import GradientHoverButton from "../components/GradientHoverButton";
-import AnimatedBackgroundButton from "../components/AnimatedBackgroundButton";
-import GradientLoader from "../components/GradientLoader";
+import GradientBorderButton from "../components/GradientBorderButton.jsx";
+import GradientHoverButton from "../components/GradientHoverButton.jsx";
+import AnimatedBackgroundButton from "../components/AnimatedBackgroundButton.jsx";
+import GradientLoader from "../components/GradientLoader.jsx";
+import ThemeSwitch from "../components/ThemeSwitch.astro";
 
 export const COMPONENTS = [
   {
@@ -27,5 +28,12 @@ export const COMPONENTS = [
     component: GradientLoader,
     page: "gradient-loader",
     path: "/src/components/GradientLoader.jsx",
+  },
+  {
+    title: "Theme switch",
+    component: ThemeSwitch,
+    name: "ThemeSwitch",
+    page: "theme-switch",
+    path: "/src/components/ThemeSwitch.jsx",
   },
 ];
