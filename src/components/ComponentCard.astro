@@ -11,16 +11,20 @@ const { href = "#", title } = Astro.props;
 <article
   class="relative w-[330px] h-[330px] bg-slate-950 border-2 border-slate-800 rounded-xl hover:border-slate-700 group transition-colors duration-200"
 >
-  <header class="absolute top-0 w-full h-full text-base">
+  <a
+    class="absolute top-0 w-full h-full text-base"
+    href={href}
+    title="Get the code!"
+  >
     <div
       class="relative w-full px-5 pt-4 flex justify-between items-center text-slate-300 group-hover:text-slate-200 transition-colors duration-200"
     >
-      <a href={href} class="pr-6 w-full"
-        ><h3 class="font-semibold text-[14px]">{title}</h3></a
-      >
-      <a href={href}><ArrowOutward class="w-5 h-5 absolute top-5 right-4" /></a>
+      <h3 class="font-semibold text-[14px] pr-6 w-full">{title}</h3>
+      <ArrowOutward
+        class="w-5 h-5 absolute top-5 right-4 md:top-6 md:right-5 md:opacity-0 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-150"
+      />
     </div>
-  </header>
+  </a>
   <div class="flex items-center justify-center w-full h-full p-5 font-sans">
     <slot />
   </div>
