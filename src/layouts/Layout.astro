@@ -24,17 +24,17 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@800&display=swap"
-      rel="stylesheet"
-    />
     <style>
+      @font-face {
+        font-family: "JetBrains Mono";
+        src:
+          url("../assets/JetBrains800.woff2") format("woff2"),
+        font-weight: 800;
+        font-style: normal;
+      }
+
       body {
         font-family: "JetBrains Mono", monospace;
-        font-weight: 400;
-        font-style: normal;
       }
     </style>
   </head>
