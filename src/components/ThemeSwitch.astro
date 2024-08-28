@@ -1,13 +1,13 @@
-<div class="ml-3" id="div-switch">
+<span>
   <input
     type="checkbox"
-    id="theme-switch"
     name="theme-switch"
+    id="theme-switch"
     class="theme-switch sr-only"
   />
   <label class="relative cursor-pointer p-2" for="theme-switch">
     <svg
-      class="light w-10 h-10 fill-slate-400 [filter:drop-shadow(-5px_-10px_15px_rgba(255,238,0,0.767))] hover:[filter:drop-shadow(-5px_-10px_17px_rgba(255,238,0,0.952))] hover:scale-105 transition-all"
+      class="lightIcon w-10 h-10 fill-slate-400 [filter:drop-shadow(-5px_-10px_15px_rgba(255,238,0,0.767))] hover:[filter:drop-shadow(-5px_-10px_17px_rgba(255,238,0,0.952))] hover:scale-105 transition-all"
       viewBox="0 0 24 24"
     >
       <path fill="#ffe600" d="M11.5 8a3.5 3.5 0 1 1-7 0a3.5 3.5 0 0 1 7 0"
@@ -23,7 +23,7 @@
       ></path>
     </svg>
     <svg
-      class="dark hidden w-10 h-10 [filter:drop-shadow(0_0_15px_rgba(108,147,255,0.966))] hover:[filter:drop-shadow(0_0_17px_rgba(131,162,255,1))] fill-slate-100 hover:scale-105 transition-all"
+      class="darkIcon hidden w-10 h-10 [filter:drop-shadow(0_0_15px_rgba(108,147,255,0.966))] hover:[filter:drop-shadow(0_0_17px_rgba(131,162,255,1))] fill-slate-100 hover:scale-105 transition-all"
       viewBox="0 0 24 24"
     >
       <path
@@ -34,11 +34,11 @@
       ></path>
     </svg>
   </label>
-</div>
+</span>
 <script is:inline>
-  const $switch = document.querySelector("#div-switch");
-  const $light = document.querySelector("#div-switch .light");
-  const $dark = document.querySelector("#div-switch .dark");
+  const $switch = document.querySelector("#theme-switch");
+  const $light = document.querySelector(".lightIcon");
+  const $dark = document.querySelector(".darkIcon");
   $switch.addEventListener("click", function () {
     $light.classList.toggle("hidden");
     $dark.classList.toggle("hidden");
