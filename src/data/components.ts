@@ -4,6 +4,7 @@ import AnimatedBackgroundButton from "../components/AnimatedBackgroundButton.jsx
 import GradientLoader from "../components/GradientLoader.jsx";
 import ThemeSwitch from "../components/ThemeSwitch.astro";
 import GradientText from "../components/GradientText.jsx";
+import FlipCard from "../components/FlipCard.astro";
 
 export const COMPONENTS = [
   {
@@ -41,5 +42,11 @@ export const COMPONENTS = [
     component: GradientText,
     page: "gradient-text",
     path: "/src/components/GradientText.jsx",
+  },
+  {
+    title: "Flip card",
+    component: FlipCard,
+    page: "flip-card",
+    path: "/src/components/FlipCard.jsx",
   },
 ];
