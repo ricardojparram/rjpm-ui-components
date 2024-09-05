@@ -1,0 +1,51 @@
+---
+import { Code } from "astro:components";
+import CopyIcon from "../components/icons/Copy.astro";
+import CopyIconCheck from "../components/icons/CopyCheck.astro";
+import File from "./icons/File.astro";
+interface Props {
+  code: string;
+  filename: string;
+}
+const { code, filename } = Astro.props;
+---
+
+<section
+  class="min-h-[180px] relative pt-6 border-2 border-slate-800 rounded-xl hover:border-slate-700 group/code transition-colors duration-200 flex items-center justify-center"
+>
+  <nav class="absolute top-3 left-5 flex items-center gap-4">
+    <span class="text-slate-400 text-sm font-normal flex items-center gap-1"
+      ><File class="w-4 h-4" />{filename}</span
+    >
+  </nav>
+  <button
+    class="copyButton opacity-0 absolute top-5 right-5 z-20 group-hover/code:opacity-100 transition-all cursor-pointer rounded-md border-2 border-slate-700 bg-transparent hover:bg-slate-900 active:scale-90 p-2"
+    data-code={code}
+  >
+    <CopyIcon className="h-4 w-4 text-slate-400 copy" />
+    <CopyIconCheck className="h-4 w-4 text-slate-200 hidden check" />
+  </button>
+  <Code
+    lang="js"
+    class="rounded-xl p-5 text-start w-full !bg-slate-950"
+    code={code}
+    theme="catppuccin-mocha"
+  />
+</section>
+
+<script>
+  const $copyButton = document.querySelectorAll(".copyButton");
+  $copyButton.forEach((button) => {
+    button.addEventListener("click", function () {
+      const $copyIcon = this.children[0];
+      const $copyCheckIcon = this.children[1];
+      navigator.clipboard.writeText(this.dataset.code);
+      $copyIcon.classList.add("hidden");
+      $copyCheckIcon.classList.remove("hidden");
+      setTimeout(() => {
+        $copyIcon.classList.remove("hidden");
+        $copyCheckIcon.classList.add("hidden");
+      }, 3000);
+    });
+  });
+</script>

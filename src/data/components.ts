@@ -12,48 +12,60 @@ export const COMPONENTS = [
     title: "Gradient border button",
     component: GradientBorderButton,
     page: "gradient-border-button",
-    path: "/src/components/GradientBorderButton.jsx",
+    filename: "GradientBorderButton.jsx",
   },
   {
     title: "Gradient hover button",
     component: GradientHoverButton,
     page: "gradient-hover-button",
-    path: "/src/components/GradientHoverButton.jsx",
+    filename: "GradientHoverButton.jsx",
   },
   {
     title: "Animated background button",
     component: AnimatedBackgroundButton,
     page: "animated-background-button",
-    path: "/src/components/AnimatedBackgroundButton.jsx",
+    filename: "AnimatedBackgroundButton.jsx",
   },
   {
     title: "Gradient Loader",
     component: GradientLoader,
     page: "gradient-loader",
-    path: "/src/components/GradientLoader.jsx",
+    filename: "GradientLoader.jsx",
   },
   {
     title: "Theme switch",
     component: ThemeSwitch,
     page: "theme-switch",
-    path: "/src/components/ThemeSwitch.jsx",
+    filename: "ThemeSwitch.jsx",
   },
   {
     title: "Gradient text",
     component: GradientText,
     page: "gradient-text",
-    path: "/src/components/GradientText.jsx",
+    filename: "GradientText.jsx",
   },
   {
     title: "Flip card",
     component: FlipCard,
     page: "flip-card",
-    path: "/src/components/FlipCard.jsx",
+    filename: "FlipCard.jsx",
   },
   {
     title: "Infinite carousel",
     component: InfiniteCarousel,
     page: "infinite-carousel",
-    path: "/src/components/InfiniteCarousel.jsx",
+    filename: "InfiniteCarousel.jsx",
+    tailwind: `{
+  animation: {
+    scroll: "scroll 25s linear infinite",
+  },
+  keyframes: {
+    scroll: {
+      from: { transform: "translateX(0)" },
+      to: { transform: "translateX(-100%)" },
+    },
+  },
+}
+`,
   },
 ];

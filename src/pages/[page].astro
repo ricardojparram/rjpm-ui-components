@@ -1,10 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Code } from "astro:components";
 import { COMPONENTS } from "../data/components";
 import { getFileContent } from "../util/getFileContent";
-import CopyIcon from "../components/icons/Copy.astro";
-import CopyIconCheck from "../components/icons/CopyCheck.astro";
+import CodeBox from "../components/CodeBox.astro";
 
 export function getStaticPaths() {
   const pages = COMPONENTS.map((item) => ({ params: { page: item.page } }));
@@ -12,11 +10,10 @@ export function getStaticPaths() {
 }
 const { page } = Astro.params;
 const [ITEM] = COMPONENTS.filter((item) => item.page === page);
-const code = await getFileContent(ITEM.path);
+const code = await getFileContent("/src/components/" + ITEM.filename);
 ---
 
 <Layout title={`rjpm.ui - ${ITEM.title}`}>
-  <pre></pre>
   <header class="text-center p-5 flex flex-col items-center">
     <h1 class="text-4xl text-pretty mt-4 p-2 w-fit font-bold">
       {ITEM.title}
@@ -32,43 +29,11 @@ const code = await getFileContent(ITEM.path);
       </div>
       <ITEM.component />
     </section>
-    <section
-      class="min-h-[180px] relative border-2 border-slate-800 rounded-xl hover:border-slate-700 group/code transition-colors duration-200 flex items-center justify-center font-sans"
-    >
-      <button
-        class="opacity-0 absolute top-5 right-5 z-20 group-hover/code:opacity-100 transition-all cursor-pointer rounded-md border-2 border-slate-700 bg-transparent hover:bg-slate-900 active:scale-90 p-2"
-        id="copyButton"
-        data-code={code}
-      >
-        <CopyIcon className="h-4 w-4 text-slate-400 copy" />
-        <CopyIconCheck className="h-4 w-4 text-slate-200 hidden check" />
-      </button>
-      <Code
-        lang="js"
-        class="rounded-xl p-5"
-        code={code}
-        theme="catppuccin-mocha"
-      />
-    </section>
+    <CodeBox code={code} filename={ITEM.filename} />
+    {
+      ITEM.tailwind && (
+        <CodeBox code={ITEM.tailwind} filename="tailwind.config.mjs" />
+      )
+    }
   </main>
 </Layout>
-<script>
-  const $copyButton = document.querySelector("#copyButton");
-  const $copyIcon = document.querySelector("#copyButton .copy");
-  const $copyCheckIcon = document.querySelector("#copyButton .check");
-
-  $copyButton.addEventListener("click", function () {
-    navigator.clipboard.writeText($copyButton.dataset.code);
-    $copyIcon.classList.add("hidden");
-    $copyCheckIcon.classList.remove("hidden");
-    setTimeout(() => {
-      $copyIcon.classList.remove("hidden");
-      $copyCheckIcon.classList.add("hidden");
-    }, 3000);
-  });
-</script>
-<style>
-  pre {
-    background-color: rgb(2 6 23) !important;
-  }
-</style>
