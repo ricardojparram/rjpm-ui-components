@@ -54,6 +54,6 @@ export const COMPONENTS = [
     title: "Infinite carousel",
     component: InfiniteCarousel,
     page: "infinite-carousel",
-    path: "/src/components/InfiniteCarousel.astro",
+    path: "/src/components/InfiniteCarousel.jsx",
   },
 ];
