@@ -1,61 +1,28 @@
+---
+const Icons = [
+  { src: "/icons/Astro.svg", alt: "Astro framework logo" },
+  { src: "/icons/React.svg", alt: "React framework logo" },
+  { src: "/icons/Tailwindcss.svg", alt: "Tailwindcss logo" },
+  { src: "/icons/Vue.svg", alt: "Vue framework logo" },
+  { src: "/icons/PHP.svg", alt: "PHP logo" },
+  { src: "/icons/MySQL.svg", alt: "MySQL logo" },
+  { src: "/icons/Nuxt.svg", alt: "Nuxt framework logo" },
+  { src: "/icons/Laravel.svg", alt: "Laravel framework logo" },
+];
+---
+
 <div
   class="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)] text-3xl21"
 >
-  <ul
-    class="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-scroll"
-  >
-    <li>
-      <img src="/icons/Astro.svg" alt="Astro framework logo" />
-    </li>
-    <li>
-      <img src="/icons/React.svg" alt="Reactjs framework logo" />
-    </li>
-    <li>
-      <img src="/icons/Tailwindcss.svg" alt="Tailwindcss logo" />
-    </li>
-    <li>
-      <img src="/icons/Vue.svg" alt="Vue framework logo" />
-    </li>
-    <li>
-      <img src="/icons/PHP.svg" alt="PHP logo" />
-    </li>
-    <li>
-      <img src="/icons/MySQL.svg" alt="MySQL logo" />
-    </li>
-    <li>
-      <img src="/icons/Nuxt.svg" alt="Nuxt framework logo" />
-    </li>
-    <li>
-      <img src="/icons/Laravel.svg" alt="Laravel framework logo" />
-    </li>
-  </ul>
-  <ul
-    class="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-scroll"
-    aria-hidden="true"
-  >
-    <li>
-      <img src="/icons/Astro.svg" alt="Astro framework logo" />
-    </li>
-    <li>
-      <img src="/icons/React.svg" alt="Reactjs framework logo" />
-    </li>
-    <li>
-      <img src="/icons/Tailwindcss.svg" alt="Tailwindcss logo" />
-    </li>
-    <li>
-      <img src="/icons/Vue.svg" alt="Vue framework logo" />
-    </li>
-    <li>
-      <img src="/icons/PHP.svg" alt="PHP logo" />
-    </li>
-    <li>
-      <img src="/icons/MySQL.svg" alt="MySQL logo" />
-    </li>
-    <li>
-      <img src="/icons/Nuxt.svg" alt="Nuxt framework logo" />
-    </li>
-    <li>
-      <img src="/icons/Laravel.svg" alt="Laravel framework logo" />
-    </li>
-  </ul>
+  {
+    [0, 1].map((ul) => (
+      <ul class="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-scroll">
+        {Icons.map((i) => (
+          <li>
+            <img src={i.src} alt={i.alt} />
+          </li>
+        ))}
+      </ul>
+    ))
+  }
 </div>
