@@ -5,6 +5,7 @@ import GradientLoader from "../components/GradientLoader.jsx";
 import ThemeSwitch from "../components/ThemeSwitch.astro";
 import GradientText from "../components/GradientText.jsx";
 import FlipCard from "../components/FlipCard.astro";
+import InfiniteCarousel from "../components/InfiniteCarousel.astro";
 
 export const COMPONENTS = [
   {
@@ -48,5 +49,11 @@ export const COMPONENTS = [
     component: FlipCard,
     page: "flip-card",
     path: "/src/components/FlipCard.jsx",
+  },
+  {
+    title: "Infinite carousel",
+    component: InfiniteCarousel,
+    page: "infinite-carousel",
+    path: "/src/components/InfiniteCarousel.astro",
   },
 ];
