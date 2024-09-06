@@ -19,6 +19,10 @@ export const COMPONENTS = [
         framework: "React",
         code: await getFileContent("/src/components/GradientBorderButton.jsx"),
       },
+      {
+        framework: "Astro",
+        code: await getFileContent("/src/components/GradientBorderButton.astro"),
+      },
     ],
   },
   {
@@ -30,6 +34,10 @@ export const COMPONENTS = [
       {
         framework: "React",
         code: await getFileContent("/src/components/GradientHoverButton.jsx"),
+      },
+      {
+        framework: "Astro",
+        code: await getFileContent("/src/components/GradientHoverButton.astro"),
       },
     ],
   },
@@ -45,6 +53,12 @@ export const COMPONENTS = [
           "/src/components/AnimatedBackgroundButton.jsx"
         ),
       },
+      {
+        framework: "Astro",
+        code: await getFileContent(
+          "/src/components/AnimatedBackgroundButton.astro"
+        ),
+      },
     ],
   },
   {
@@ -56,6 +70,10 @@ export const COMPONENTS = [
       {
         framework: "React",
         code: await getFileContent("/src/components/GradientLoader.jsx"),
+      },
+      {
+        framework: "Astro",
+        code: await getFileContent("/src/components/GradientLoader.astro"),
       },
     ],
   },
@@ -69,6 +87,10 @@ export const COMPONENTS = [
         framework: "React",
         code: await getFileContent("/src/components/ThemeSwitch.jsx"),
       },
+      {
+        framework: "Astro",
+        code: await getFileContent("/src/components/ThemeSwitch.astro"),
+      },
     ],
   },
   {
@@ -80,6 +102,10 @@ export const COMPONENTS = [
       {
         framework: "React",
         code: await getFileContent("/src/components/GradientText.jsx"),
+      },
+      {
+        framework: "Astro",
+        code: await getFileContent("/src/components/GradientText.astro"),
       },
     ],
   },
@@ -93,6 +119,10 @@ export const COMPONENTS = [
         framework: "React",
         code: await getFileContent("/src/components/FlipCard.jsx"),
       },
+      {
+        framework: "Astro",
+        code: await getFileContent("/src/components/FlipCard.astro"),
+      }
     ],
   },
   {
