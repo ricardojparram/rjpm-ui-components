@@ -8,7 +8,7 @@
       aria-label="Input for changing theme to dark or light"
     />
     <svg
-      class="lightIcon w-10 h-10 fill-slate-400 [filter:drop-shadow(-5px_-10px_15px_rgba(255,238,0,0.767))] hover:[filter:drop-shadow(-5px_-10px_17px_rgba(255,238,0,0.952))] hover:scale-105 transition-all"
+      class="hidden dark:block w-10 h-10 fill-slate-400 [filter:drop-shadow(-5px_-10px_15px_rgba(255,238,0,0.767))] hover:[filter:drop-shadow(-5px_-10px_17px_rgba(255,238,0,0.952))] hover:scale-105 transition-all"
       viewBox="0 0 24 24"
     >
       <path fill="#ffe600" d="M11.5 8a3.5 3.5 0 1 1-7 0a3.5 3.5 0 0 1 7 0"
@@ -24,7 +24,7 @@
       ></path>
     </svg>
     <svg
-      class="darkIcon hidden w-10 h-10 [filter:drop-shadow(0_0_15px_rgba(108,147,255,0.966))] hover:[filter:drop-shadow(0_0_17px_rgba(131,162,255,1))] fill-slate-100 hover:scale-105 transition-all"
+      class="darkIcon dark:hidden w-10 h-10 [filter:drop-shadow(0_0_15px_rgba(108,147,255,0.966))] hover:[filter:drop-shadow(0_0_17px_rgba(131,162,255,1))] fill-slate-400 hover:scale-105 transition-all"
       viewBox="0 0 24 24"
     >
       <path
@@ -37,11 +37,29 @@
   </label>
 </span>
 <script is:inline>
+  if (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+
+  const toggleTheme = () => {
+    const theme = localStorage.theme;
+    if (theme === "light") {
+      localStorage.theme = "dark";
+      document.documentElement.classList.add("dark");
+    } else {
+      localStorage.theme = "light";
+      document.documentElement.classList.remove("dark");
+    }
+  };
+
   const $switch = document.querySelector("#theme-switch");
-  const $light = document.querySelector(".lightIcon");
-  const $dark = document.querySelector(".darkIcon");
   $switch.addEventListener("click", function () {
-    $light.classList.toggle("hidden");
-    $dark.classList.toggle("hidden");
+    toggleTheme();
   });
 </script>
