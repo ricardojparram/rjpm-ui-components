@@ -16,7 +16,7 @@ const framework_icons = {'React' : "/icons/React.svg", "Astro" : "/icons/Astro.s
       files ? (
         files.map((file, index) => (
           <button
-            class={`${file.framework} ${index === 0 ? 'text-slate-200 border-2' : 'text-slate-500'} framework  rounded-xl border-slate-200  px-3 py-1 text-sm  flex items-center gap-1 cursor-pointer hover:underline decoration-2`}
+            class={`${file.framework} ${index === 0 ? 'text-slate-200 bg-slate-800' : 'text-slate-500'} framework rounded-full px-4 py-1 text-sm flex items-center gap-1 cursor-pointer hover:underline decoration-2`}
             id={file.framework}
           >
             <img src={framework_icons[file.framework]} alt="" class="w-4 h-4">
@@ -40,11 +40,11 @@ const framework_icons = {'React' : "/icons/React.svg", "Astro" : "/icons/Astro.s
             class="copyButton opacity-0 absolute top-5 right-5 z-20 group-hover/code:opacity-100 transition-all cursor-pointer rounded-md border-2 border-slate-700 bg-transparent hover:bg-slate-900 active:scale-90 p-2"
             data-code={comp.code}
           >
-            <CopyIcon className="h-4 w-4 text-slate-400 copy" />
-            <CopyIconCheck className="h-4 w-4 text-slate-200 hidden check" />
+            <CopyIcon class="h-4 w-4 text-slate-400 copy" />
+            <CopyIconCheck class="h-4 w-4 text-slate-200 hidden check" />
           </button>
           <Code
-            lang="js"
+            lang={(comp.framework === "React") ? 'js' : comp.framework.toLowerCase()}
             class="rounded-xl p-5 pt-7 text-start w-full !bg-slate-950"
             code={comp.code}
             theme="catppuccin-mocha"
@@ -58,8 +58,8 @@ const framework_icons = {'React' : "/icons/React.svg", "Astro" : "/icons/Astro.s
         class="copyButton opacity-0 absolute top-5 right-5 z-20 group-hover/code:opacity-100 transition-all cursor-pointer rounded-md border-2 border-slate-700 bg-transparent hover:bg-slate-900 active:scale-90 p-2"
         data-code={code}
       >
-        <CopyIcon className="h-4 w-4 text-slate-400 copy" />
-        <CopyIconCheck className="h-4 w-4 text-slate-200 hidden check" />
+        <CopyIcon class="h-4 w-4 text-slate-400 copy" />
+        <CopyIconCheck class="h-4 w-4 text-slate-200 hidden check" />
       </button>
       <Code
         lang="js"
@@ -74,7 +74,6 @@ const framework_icons = {'React' : "/icons/React.svg", "Astro" : "/icons/Astro.s
 
   const $copyButton = document.querySelectorAll(".copyButton");
   $copyButton.forEach((button) => {
-    console.log(button)
     button.addEventListener("click", function () {
       const $copyIcon = this.children[0];
       const $copyCheckIcon = this.children[1];
@@ -96,11 +95,11 @@ const framework_icons = {'React' : "/icons/React.svg", "Astro" : "/icons/Astro.s
           el.classList.remove('hidden');
           $selectFramework.forEach(b => {
             if(b.classList.contains(this.id)){
-              b.classList.remove('text-slate-500', 'border-none');
-              b.classList.add('text-slate-200', 'border-2');
+              b.classList.remove('text-slate-500');
+              b.classList.add('text-slate-200', 'bg-slate-800');
             }else{
-              b.classList.remove('text-slate-200', 'border-2');
-              b.classList.add('text-slate-500', 'border-none');
+              b.classList.remove('text-slate-200', 'bg-slate-800');
+              b.classList.add('text-slate-500');
             }
           })
         }else{
