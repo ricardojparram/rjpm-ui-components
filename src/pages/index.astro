@@ -3,10 +3,14 @@ import ComponentCard from "../components/ComponentCard.astro";
 import Tailwindcss from "../components/icons/Tailwindcss.astro";
 import Layout from "../layouts/Layout.astro";
 import { COMPONENTS } from "../data/components";
+import { fade } from "astro:transitions";
 ---
 
 <Layout title="rjpm.ui - Easy-to-Use Tailwind CSS and React Components">
-  <header class="text-center p-5 flex flex-col items-center">
+  <header
+    class="text-center p-5 flex flex-col items-center"
+    transition:animate={fade({ duration: "0.15s" })}
+  >
     <h1 class="text-4xl text-pretty mt-4 p-2 w-fit font-bold">
       Easy to use component collection <br />
       <span class="text-slate-400 text-xl"
@@ -15,7 +19,10 @@ import { COMPONENTS } from "../data/components";
       </span>
     </h1>
   </header>
-  <main class="flex flex-col items-center justify-center">
+  <main
+    class="flex flex-col items-center justify-center"
+    transition:animate={fade({ duration: "0.15s" })}
+  >
     <section class="w-full h-full mt-12 flex flex-wrap justify-center gap-5">
       {
         COMPONENTS.map((item) => (
