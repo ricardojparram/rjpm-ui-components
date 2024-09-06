@@ -5,20 +5,21 @@ import CopyIconCheck from "../components/icons/CopyCheck.astro";
 import File from "./icons/File.astro";
 
 let { code, filename, files } = Astro.props;
+const framework_icons = {'React' : "/icons/React.svg", "Astro" : "/icons/Astro.svg"};
 ---
 
 <section
   class="min-h-[180px] relative pt-6 border-2 border-slate-800 rounded-xl hover:border-slate-700 group/code transition-colors duration-200 flex items-center justify-center"
 >
-  <nav class="absolute top-3 left-5 flex items-center gap-6">
+  <nav class="absolute top-3 left-5 flex items-center gap-4">
     {
       files ? (
         files.map((file, index) => (
           <button
-            class={`${file.framework} ${index === 0 ? 'text-slate-200 font-extrabold' : 'text-slate-500 font-normal'} framework text-sm  flex items-center gap-1 cursor-pointer hover:underline decoration-2`}
+            class={`${file.framework} ${index === 0 ? 'text-slate-200 border-2' : 'text-slate-500'} framework  rounded-xl border-slate-200  px-3 py-1 text-sm  flex items-center gap-1 cursor-pointer hover:underline decoration-2`}
             id={file.framework}
           >
-            <File class="w-4 h-4" />
+            <img src={framework_icons[file.framework]} alt="" class="w-4 h-4">
             {file.framework}
           </button>
         ))
@@ -44,7 +45,7 @@ let { code, filename, files } = Astro.props;
           </button>
           <Code
             lang="js"
-            class="rounded-xl p-5 text-start w-full !bg-slate-950"
+            class="rounded-xl p-5 pt-7 text-start w-full !bg-slate-950"
             code={comp.code}
             theme="catppuccin-mocha"
           />
@@ -93,13 +94,17 @@ let { code, filename, files } = Astro.props;
       $codesources.forEach(el => {
         if(el.classList.contains(this.id)){
           el.classList.remove('hidden');
-          button.classList.remove('text-slate-500', 'font-normal');
-          button.classList.add('text-slate-200', 'font-extrabold');
+          $selectFramework.forEach(b => {
+            if(b.classList.contains(this.id)){
+              b.classList.remove('text-slate-500', 'border-none');
+              b.classList.add('text-slate-200', 'border-2');
+            }else{
+              b.classList.remove('text-slate-200', 'border-2');
+              b.classList.add('text-slate-500', 'border-none');
+            }
+          })
         }else{
           el.classList.add('hidden');
-          console.log(button)
-          button.classList.remove('text-slate-200', 'font-extrabold');
-          button.classList.add('text-slate-500', 'font-normal');
         }
       })
     })
