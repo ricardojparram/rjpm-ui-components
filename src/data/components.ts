@@ -2,7 +2,7 @@ import GradientBorderButton from "../components/GradientBorderButton.jsx";
 import GradientHoverButton from "../components/GradientHoverButton.jsx";
 import AnimatedBackgroundButton from "../components/AnimatedBackgroundButton.jsx";
 import GradientLoader from "../components/GradientLoader.jsx";
-import ThemeSwitch from "../components/ThemeSwitch.astro";
+import ThemeSwitch from "../components/ThemeSwitchPreview.astro";
 import GradientText from "../components/GradientText.jsx";
 import FlipCard from "../components/FlipCard.astro";
 import InfiniteCarousel from "../components/InfiniteCarousel.astro";
