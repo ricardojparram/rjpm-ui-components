@@ -1,7 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { COMPONENTS } from "../data/components";
-import { getFileContent } from "../util/getFileContent";
 import CodeBox from "../components/CodeBox.astro";
 
 export function getStaticPaths() {
@@ -10,7 +9,6 @@ export function getStaticPaths() {
 }
 const { page } = Astro.params;
 const [ITEM] = COMPONENTS.filter((item) => item.page === page);
-const code = await getFileContent("/src/components/" + ITEM.filename);
 ---
 
 <Layout title={`rjpm.ui - ${ITEM.title}`}>
@@ -29,7 +27,7 @@ const code = await getFileContent("/src/components/" + ITEM.filename);
       </div>
       <ITEM.component />
     </section>
-    <CodeBox code={code} filename={ITEM.filename} />
+    <CodeBox files={ITEM.files} />
     {
       ITEM.tailwind && (
         <CodeBox code={ITEM.tailwind} filename="tailwind.config.mjs" />

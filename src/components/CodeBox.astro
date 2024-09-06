@@ -3,24 +3,40 @@ import { Code } from "astro:components";
 import CopyIcon from "../components/icons/Copy.astro";
 import CopyIconCheck from "../components/icons/CopyCheck.astro";
 import File from "./icons/File.astro";
+import { getFileContent } from "../util/getFileContent";
+
 interface Props {
-  code: string;
-  filename: string;
+  code?: string;
+  filename?: string;
+  files?: Array<Object>;
 }
-const { code, filename } = Astro.props;
+let { code, filename, files } = Astro.props;
+
+// const filecode = await getFileContent("/src/components/" + files.filename);
+if (files.length >= 1) {
+  files = files.map(
+    async (file) => await getFileContent("/src/components/" + file.filename)
+  );
+}
+console.log(files);
 ---
 
 <section
   class="min-h-[180px] relative pt-6 border-2 border-slate-800 rounded-xl hover:border-slate-700 group/code transition-colors duration-200 flex items-center justify-center"
 >
   <nav class="absolute top-3 left-5 flex items-center gap-4">
-    <span class="text-slate-400 text-sm font-normal flex items-center gap-1"
-      ><File class="w-4 h-4" />{filename}</span
-    >
+    {
+      files.map((file) => (
+        <span class="text-slate-400 text-sm font-normal flex items-center gap-1">
+          <File class="w-4 h-4" />
+          {file.framework}
+        </span>
+      ))
+    }
   </nav>
-  <button
+  <!-- <button
     class="copyButton opacity-0 absolute top-5 right-5 z-20 group-hover/code:opacity-100 transition-all cursor-pointer rounded-md border-2 border-slate-700 bg-transparent hover:bg-slate-900 active:scale-90 p-2"
-    data-code={code}
+    data-code={files[0].code}
   >
     <CopyIcon className="h-4 w-4 text-slate-400 copy" />
     <CopyIconCheck className="h-4 w-4 text-slate-200 hidden check" />
@@ -30,10 +46,11 @@ const { code, filename } = Astro.props;
     class="rounded-xl p-5 text-start w-full !bg-slate-950"
     code={code}
     theme="catppuccin-mocha"
-  />
+  /> -->
 </section>
 
-<script>
+<script define:vars={{ code, files }}>
+  console.log(files);
   const $copyButton = document.querySelectorAll(".copyButton");
   $copyButton.forEach((button) => {
     button.addEventListener("click", function () {
