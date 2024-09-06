@@ -71,42 +71,42 @@ const framework_icons = {'React' : "/icons/React.svg", "Astro" : "/icons/Astro.s
 </section>
 
 <script>
-
-  const $copyButton = document.querySelectorAll(".copyButton");
-  $copyButton.forEach((button) => {
-    button.addEventListener("click", function () {
-      const $copyIcon = this.children[0];
-      const $copyCheckIcon = this.children[1];
-      navigator.clipboard.writeText(this.dataset.code);
-      $copyIcon.classList.add("hidden");
-      $copyCheckIcon.classList.remove("hidden");
-      setTimeout(() => {
-        $copyIcon.classList.remove("hidden");
-        $copyCheckIcon.classList.add("hidden");
-      }, 3000);
+  document.addEventListener("astro:page-load", () => {
+    const $copyButton = document.querySelectorAll(".copyButton");
+    $copyButton.forEach((button) => {
+      button.addEventListener("click", function () {
+        const $copyIcon = this.children[0];
+        const $copyCheckIcon = this.children[1];
+        navigator.clipboard.writeText(this.dataset.code);
+        $copyIcon.classList.add("hidden");
+        $copyCheckIcon.classList.remove("hidden");
+        setTimeout(() => {
+          $copyIcon.classList.remove("hidden");
+          $copyCheckIcon.classList.add("hidden");
+        }, 3000);
+      });
     });
-  });
-  const $selectFramework = document.querySelectorAll(".framework");
-  const $codesources = document.querySelectorAll(".codesource");
-  $selectFramework.forEach(button => {
-    button.addEventListener('click', function(){
-      $codesources.forEach(el => {
-        if(el.classList.contains(this.id)){
-          el.classList.remove('hidden');
-          $selectFramework.forEach(b => {
-            if(b.classList.contains(this.id)){
-              b.classList.remove('text-slate-500');
-              b.classList.add('text-slate-200', 'bg-slate-800');
-            }else{
-              b.classList.remove('text-slate-200', 'bg-slate-800');
-              b.classList.add('text-slate-500');
-            }
-          })
-        }else{
-          el.classList.add('hidden');
-        }
+    const $selectFramework = document.querySelectorAll(".framework");
+    const $codesources = document.querySelectorAll(".codesource");
+    $selectFramework.forEach(button => {
+      button.addEventListener('click', function(){
+        $codesources.forEach(el => {
+          if(el.classList.contains(this.id)){
+            el.classList.remove('hidden');
+            $selectFramework.forEach(b => {
+              if(b.classList.contains(this.id)){
+                b.classList.remove('text-slate-500');
+                b.classList.add('text-slate-200', 'bg-slate-800');
+              }else{
+                b.classList.remove('text-slate-200', 'bg-slate-800');
+                b.classList.add('text-slate-500');
+              }
+            })
+          }else{
+            el.classList.add('hidden');
+          }
+        })
       })
     })
-    
   })
 </script>

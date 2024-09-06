@@ -37,11 +37,15 @@
   </label>
 </span>
 <script is:inline>
-  const $switch = document.querySelector("#theme-switch");
-  const $light = document.querySelector(".lightIcon");
-  const $dark = document.querySelector(".darkIcon");
-  $switch.addEventListener("click", function () {
-    $light.classList.toggle("hidden");
-    $dark.classList.toggle("hidden");
+  document.addEventListener("astro:page-load", () => {
+    const $switch = document.querySelector("#theme-switch");
+    const $light = document.querySelector(".lightIcon");
+    const $dark = document.querySelector(".darkIcon");
+    if ($switch) {
+      $switch.addEventListener("click", function () {
+        $light.classList.toggle("hidden");
+        $dark.classList.toggle("hidden");
+      });
+    }
   });
 </script>
