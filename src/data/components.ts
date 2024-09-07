@@ -21,7 +21,9 @@ export const COMPONENTS = [
       },
       {
         framework: "Astro",
-        code: await getFileContent("/src/components/GradientBorderButton.astro"),
+        code: await getFileContent(
+          "/src/components/GradientBorderButton.astro"
+        ),
       },
     ],
   },
@@ -92,6 +94,11 @@ export const COMPONENTS = [
         code: await getFileContent("/src/components/ThemeSwitch.astro"),
       },
     ],
+    tailwind: `export default {
+  // content: [...]
+  darkMode: "selector"
+  // plugins: [...]
+}`,
   },
   {
     title: "Gradient text",
@@ -122,7 +129,7 @@ export const COMPONENTS = [
       {
         framework: "Astro",
         code: await getFileContent("/src/components/FlipCard.astro"),
-      }
+      },
     ],
   },
   {
@@ -140,17 +147,19 @@ export const COMPONENTS = [
         code: await getFileContent("/src/components/InfiniteCarousel.astro"),
       },
     ],
-    tailwind: `{
-  animation: {
-    scroll: "scroll 25s linear infinite",
-  },
-  keyframes: {
-    scroll: {
-      from: { transform: "translateX(0)" },
-      to: { transform: "translateX(-100%)" },
+    tailwind: `theme: {
+  extend: {
+    animation: {
+      scroll: "scroll 25s linear infinite",
+    },
+    keyframes: {
+      scroll: {
+        from: { transform: "translateX(0)" },
+        to: { transform: "translateX(-100%)" },
+      },
     },
   },
-}
+},
 `,
   },
 ];
