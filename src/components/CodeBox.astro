@@ -3,11 +3,11 @@ import { Code } from "astro:components";
 import CopyIcon from "../components/icons/Copy.astro";
 import CopyIconCheck from "../components/icons/CopyCheck.astro";
 import File from "./icons/File.astro";
-
+import { React, Astro as AstroIcon } from "./icons/Icons";
 let { code, filename, files } = Astro.props;
-const framework_icons = {
-  React: "/icons/React.svg",
-  Astro: "/icons/Astro.svg",
+const FRAMEWORK_ICONS = {
+  React,
+  Astro: AstroIcon,
 };
 ---
 
@@ -18,15 +18,18 @@ const framework_icons = {
   <nav class="flex items-center bg-slate-700">
     {
       files ? (
-        files.map((file, index) => (
-          <button
-            class={`${file.framework} ${index === 0 ? "text-slate-200 bg-slate-800 border-b-2" : "text-slate-400 bg-slate-700"} framework h-full border-indigo-600 px-4 py-2 md:min-w-[150px] text-sm flex items-center justify-center gap-1 cursor-pointer hover:brightness-150`}
-            id={file.framework}
-          >
-            <img src={framework_icons[file.framework]} alt="" class="w-4 h-4" />
-            {file.framework}
-          </button>
-        ))
+        files.map((file, index) => {
+          const Icon = FRAMEWORK_ICONS[file.framework];
+          return (
+            <button
+              class={`${file.framework} ${index === 0 ? "text-slate-200 bg-slate-800 border-b-2" : "text-slate-400 bg-slate-700"} framework h-full border-indigo-600 px-4 py-2 md:min-w-[150px] text-sm flex items-center justify-center gap-1 cursor-pointer hover:brightness-150`}
+              id={file.framework}
+            >
+              <Icon className="w-4 h-4" />
+              {file.framework}
+            </button>
+          );
+        })
       ) : (
         <span class="text-slate-200 text-sm px-4 py-2 font-normal flex items-center gap-1">
           <File class="w-4 h-4" />
