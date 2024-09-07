@@ -61,8 +61,10 @@
     };
 
     const $switch = document.querySelector("#theme-switch");
-    $switch.addEventListener("click", function () {
-      toggleTheme();
-    });
+    if ($switch) {
+      $switch.addEventListener("click", function () {
+        toggleTheme();
+      });
+    }
   });
 </script>
