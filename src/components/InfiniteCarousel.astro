@@ -1,14 +1,6 @@
 ---
-const Icons = [
-  { src: "/icons/Astro.svg", alt: "Astro framework logo" },
-  { src: "/icons/React.svg", alt: "React framework logo" },
-  { src: "/icons/Tailwindcss.svg", alt: "Tailwindcss logo" },
-  { src: "/icons/Vue.svg", alt: "Vue framework logo" },
-  { src: "/icons/PHP.svg", alt: "PHP logo" },
-  { src: "/icons/MySQL.svg", alt: "MySQL logo" },
-  { src: "/icons/Nuxt.svg", alt: "Nuxt framework logo" },
-  { src: "/icons/Laravel.svg", alt: "Laravel framework logo" },
-];
+import { React, Vue, PgSQL, Nuxt, MySQL, PHP, Tailwind, Nest, Docker, } from "./icons/Icons";
+const Icons = [React, Vue, PgSQL, Nuxt, MySQL, PHP, Tailwind, Nest, Docker];
 ---
 
 <div
@@ -17,9 +9,9 @@ const Icons = [
   {
     [0, 1].map((ul) => (
       <ul class="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-scroll">
-        {Icons.map((i) => (
+        {Icons.map((Icon) => (
           <li>
-            <img src={i.src} alt={i.alt} />
+            <Icon className="w-12 h-12" />
           </li>
         ))}
       </ul>
