@@ -20,15 +20,19 @@ const ThemeSwitch = () => {
     }
   };
   return (
-    <div class=" ml-3">
-      <input type="checkbox" name="light-switch" class="light-switch sr-only" />
+    <div className=" ml-3">
+      <input
+        type="checkbox"
+        name="light-switch"
+        className="light-switch sr-only"
+      />
       <label
-        class="relative cursor-pointer p-2"
+        className="relative cursor-pointer p-2"
         for="light-switch"
         onClick={toggleTheme}
       >
         <svg
-          class="w-10 h-10 hidden dark:block  fill-slate-400 drop-shadow-yellow-lg hover:drop-shadow-yellow-xl hover:scale-105 transition-all"
+          className="w-10 h-10 hidden dark:block  fill-slate-400 drop-shadow-yellow-lg hover:drop-shadow-yellow-xl hover:scale-105 transition-all"
           viewBox="0 0 24 24"
         >
           <path
@@ -48,7 +52,7 @@ const ThemeSwitch = () => {
         </svg>
 
         <svg
-          class="w-10 h-10 dark:hidden fill-slate-400 drop-shadow-blue-lg hover:drop-shadow-blue-xl hover:scale-105 transition-all"
+          className="w-10 h-10 dark:hidden fill-slate-400 drop-shadow-blue-lg hover:drop-shadow-blue-xl hover:scale-105 transition-all"
           viewBox="0 0 24 24"
         >
           <path
@@ -57,7 +61,7 @@ const ThemeSwitch = () => {
           />
           <path d="M11.286 22C13.337 22 15 20.42 15 18.47c0-1.544-1.045-2.857-2.5-3.336C12.295 13.371 10.72 12 8.81 12c-2.052 0-3.715 1.58-3.715 3.53c0 .43.082.844.23 1.226a2.949 2.949 0 0 0-.54-.05C3.248 16.706 2 17.89 2 19.353C2 20.815 3.247 22 4.786 22z" />
         </svg>
-        <span class="sr-only">Switch to light / dark version</span>
+        <span className="sr-only">Switch to light / dark version</span>
       </label>
     </div>
   );
