@@ -15,7 +15,7 @@ const framework_icons = {
   class="min-h-[180px] relative border-2 border-slate-800 rounded-xl hover:border-slate-700 group/code transition-colors duration-200 flex flex-col overflow-auto"
   class="min-h-[180px] relative border-2 border-slate-800 rounded-xl hover:border-slate-700 group/code transition-colors duration-200 flex flex-col overflow-auto"
 >
-  <nav class={`flex items-center ${files && "bg-slate-700"}`}>
+  <nav class="flex items-center bg-slate-700">
     {
       files ? (
         files.map((file, index) => (
@@ -28,7 +28,7 @@ const framework_icons = {
           </button>
         ))
       ) : (
-        <span class="text-slate-400 text-sm px-4 py-3 font-normal flex items-center gap-1">
+        <span class="text-slate-200 text-sm px-4 py-2 font-normal flex items-center gap-1">
           <File class="w-4 h-4" />
           {filename}
         </span>
@@ -42,7 +42,7 @@ const framework_icons = {
           class={`${i !== 0 && "hidden"} flex justify-center w-full h-full codesource ${comp.framework}`}
         >
           <button
-            class="copyButton lg:opacity-0 absolute top-12 right-2 z-20 group-hover/code:opacity-100 transition-all cursor-pointer rounded-md border-2 border-slate-700 bg-transparent hover:bg-slate-900 active:scale-90 p-2"
+            class="copyButton lg:opacity-0 absolute top-[50px] right-3 z-20 group-hover/code:opacity-100 transition-all cursor-pointer rounded-md border-2 border-slate-700 bg-transparent hover:bg-slate-900 active:scale-90 p-2"
             data-code={comp.code}
           >
             <CopyIcon class="h-4 w-4 text-slate-400 copy" />
@@ -61,7 +61,7 @@ const framework_icons = {
     ) : (
       <div class="flex justify-center w-full h-full">
         <button
-          class="copyButton opacity-0 absolute top-2 right-2 z-20 group-hover/code:opacity-100 transition-all cursor-pointer rounded-md border-2 border-slate-700 bg-transparent hover:bg-slate-900 active:scale-90 p-2"
+          class="copyButton opacity-0 absolute top-12 right-3 z-20 group-hover/code:opacity-100 transition-all cursor-pointer rounded-md border-2 border-slate-700 bg-transparent hover:bg-slate-900 active:scale-90 p-2"
           data-code={code}
         >
           <CopyIcon class="h-4 w-4 text-slate-400 copy" />
@@ -69,7 +69,7 @@ const framework_icons = {
         </button>
         <Code
           lang="js"
-          class="rounded-xl px-2 pb-3 text-start w-[98%] !bg-slate-950"
+          class="rounded-xl px-2 py-3 text-start w-[98%] !bg-slate-950"
           code={code}
           theme="catppuccin-mocha"
         />
