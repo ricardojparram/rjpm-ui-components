@@ -1,6 +1,7 @@
 ---
 import { ViewTransitions } from "astro:transitions";
 import Github from "../components/icons/Github.astro";
+import Web from "../components/icons/Web.astro";
 
 interface Props {
   title: string;
@@ -65,19 +66,29 @@ const { title } = Astro.props;
         >
           <a href="/">rjpm.ui</a>
         </h2>
-        <span
-          ><a
+        <span class="flex gap-4">
+          <a
+            href="https://ricardojparram.vercel.app/"
+            target="_blank"
+            aria-label="rjpm-ui's creator portfolio"
+            class="text-white hover:opacity-80"
+          >
+            <Web class="w-7 h-7" />
+          </a>
+          <a
             href="https://github.com/ricardojparram/rjpm-ui-components"
             target="_blank"
-            aria-label="Link to the source code of the project"
-            ><Github class="w-7 h-7 text-white" /></a
-          ></span
-        >
+            aria-label="Source code of the project"
+            class="text-white hover:opacity-80"
+          >
+            <Github class="w-7 h-7" />
+          </a>
+        </span>
       </nav>
       <slot />
       <footer class="p-2 pt-10 mt-auto text-center text-gray-400">
         Made by <a
-          href="https://github.com/ricardojparram"
+          href="https://ricardojparram.vercel.app/"
           target="_blank"
           class="bg-gradient-to-tr bg-[size:100%_200%] bg-[position:20%_0%] hover:bg-[position:90%_80%] transition-all duration-300 font-bold from-sky-400 to-violet-400 via-sky-400 bg-clip-text text-transparent z-10"
           aria-label="Link to the project owner github profile"
