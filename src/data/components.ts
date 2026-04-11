@@ -1,57 +1,71 @@
-import GradientBorderButton from "../ui/GradientBorderButton/GradientBorderButton.jsx";
-import gradientBorderReactCode from "../ui/GradientBorderButton/GradientBorderButton.jsx?raw";
-import gradientBorderAstroCode from "../ui/GradientBorderButton/GradientBorderButton.astro?raw";
-
-import GradientHoverButton from "../ui/GradientHoverButton/GradientHoverButton.jsx";
-import gradientHoverReactCode from "../ui/GradientHoverButton/GradientHoverButton.jsx?raw";
-import gradientHoverAstroCode from "../ui/GradientHoverButton/GradientHoverButton.astro?raw";
-
-import AnimatedBackgroundButton from "../ui/AnimatedBackgroundButton/AnimatedBackgroundButton.jsx";
-import animatedBgReactCode from "../ui/AnimatedBackgroundButton/AnimatedBackgroundButton.jsx?raw";
-import animatedBgAstroCode from "../ui/AnimatedBackgroundButton/AnimatedBackgroundButton.astro?raw";
-
-import GradientLoader from "../ui/GradientLoader/GradientLoader.jsx";
-import gradientLoaderReactCode from "../ui/GradientLoader/GradientLoader.jsx?raw";
-import gradientLoaderAstroCode from "../ui/GradientLoader/GradientLoader.astro?raw";
-
-import ThemeSwitch from "../ui/ThemeSwitch/ThemeSwitch.astro";
-import themeSwitchReactCode from "../ui/ThemeSwitch/ThemeSwitch.jsx?raw";
-import themeSwitchAstroCode from "../ui/ThemeSwitch/ThemeSwitch.astro?raw";
-
-import GradientText from "../ui/GradientText/GradientText.jsx";
-import gradientTextReactCode from "../ui/GradientText/GradientText.jsx?raw";
-import gradientTextAstroCode from "../ui/GradientText/GradientText.astro?raw";
-
-import FlipCard from "../ui/FlipCard/FlipCard.jsx";
-import flipCardReactCode from "../ui/FlipCard/FlipCard.jsx?raw";
-import flipCardAstroCode from "../ui/FlipCard/FlipCard.astro?raw";
-
-import InfiniteCarousel from "../ui/InfiniteCarousel/InfiniteCarousel.astro";
-import infiniteCarouselReactCode from "../ui/InfiniteCarousel/InfiniteCarousel.jsx?raw";
-import infiniteCarouselAstroCode from "../ui/InfiniteCarousel/InfiniteCarousel.astro?raw";
-
-import SpotlightCard from "../ui/SpotlightCard/SpotlightCard.astro";
-import spotlightCardReactCode from "../ui/SpotlightCard/SpotlightCard.jsx?raw";
-import spotlightCardAstroCode from "../ui/SpotlightCard/SpotlightCard.astro?raw";
-
-import BentoGrid from "../ui/BentoGrid/BentoGrid.astro";
-import bentoGridReactCode from "../ui/BentoGrid/BentoGrid.jsx?raw";
-import bentoGridAstroCode from "../ui/BentoGrid/BentoGrid.astro?raw";
-
-import AnimatedSegmentedTabs from "../ui/AnimatedSegmentedTabs/AnimatedSegmentedTabs.astro";
-import animatedSegmentedTabsReactCode from "../ui/AnimatedSegmentedTabs/AnimatedSegmentedTabs.jsx?raw";
-import animatedSegmentedTabsAstroCode from "../ui/AnimatedSegmentedTabs/AnimatedSegmentedTabs.astro?raw";
-
-import SmoothAccordion from "../ui/SmoothAccordion/SmoothAccordion.astro";
-import smoothAccordionReactCode from "../ui/SmoothAccordion/SmoothAccordion.jsx?raw";
-import smoothAccordionAstroCode from "../ui/SmoothAccordion/SmoothAccordion.astro?raw";
-
-import MagneticButton from "../ui/MagneticButton/MagneticButton.astro";
-import magneticButtonReactCode from "../ui/MagneticButton/MagneticButton.jsx?raw";
-import magneticButtonAstroCode from "../ui/MagneticButton/MagneticButton.astro?raw";
+import {
+  component as GradientBorderButton,
+  reactRawCode as gradientBorderReactCode,
+  astroRawCode as gradientBorderAstroCode,
+} from "../ui/GradientBorderButton";
+import {
+  component as GradientHoverButton,
+  reactRawCode as gradientHoverReactCode,
+  astroRawCode as gradientHoverAstroCode,
+} from "../ui/GradientHoverButton";
+import {
+  component as AnimatedBackgroundButton,
+  reactRawCode as animatedBgReactCode,
+  astroRawCode as animatedBgAstroCode,
+} from "../ui/AnimatedBackgroundButton";
+import {
+  component as GradientLoader,
+  reactRawCode as gradientLoaderReactCode,
+  astroRawCode as gradientLoaderAstroCode,
+} from "../ui/GradientLoader";
+import {
+  component as ThemeSwitch,
+  reactRawCode as themeSwitchReactCode,
+  astroRawCode as themeSwitchAstroCode,
+} from "../ui/ThemeSwitch";
+import {
+  component as GradientText,
+  reactRawCode as gradientTextReactCode,
+  astroRawCode as gradientTextAstroCode,
+} from "../ui/GradientText";
+import {
+  component as FlipCard,
+  reactRawCode as flipCardReactCode,
+  astroRawCode as flipCardAstroCode,
+} from "../ui/FlipCard";
+import {
+  component as InfiniteCarousel,
+  reactRawCode as infiniteCarouselReactCode,
+  astroRawCode as infiniteCarouselAstroCode,
+} from "../ui/InfiniteCarousel";
+import {
+  component as SpotlightCard,
+  reactRawCode as spotlightCardReactCode,
+  astroRawCode as spotlightCardAstroCode,
+} from "../ui/SpotlightCard";
+import {
+  component as BentoGrid,
+  reactRawCode as bentoGridReactCode,
+  astroRawCode as bentoGridAstroCode,
+} from "../ui/BentoGrid";
+import {
+  component as AnimatedSegmentedTabs,
+  reactRawCode as animatedSegmentedTabsReactCode,
+  astroRawCode as animatedSegmentedTabsAstroCode,
+} from "../ui/AnimatedSegmentedTabs";
+import {
+  component as SmoothAccordion,
+  reactRawCode as smoothAccordionReactCode,
+  astroRawCode as smoothAccordionAstroCode,
+} from "../ui/SmoothAccordion";
+import {
+  component as MagneticButton,
+  reactRawCode as magneticButtonReactCode,
+  astroRawCode as magneticButtonAstroCode,
+} from "../ui/MagneticButton";
 
 export const COMPONENTS = [
-{
+  {
     title: "Bento Grid",
     className: "md:col-span-2",
     component: BentoGrid,
@@ -61,7 +75,7 @@ export const COMPONENTS = [
       { framework: "Astro", code: bentoGridAstroCode },
     ],
   },
-{
+  {
     title: "Animated Segmented Tabs",
     component: AnimatedSegmentedTabs,
     page: "animated-segmented-tabs",
@@ -70,7 +84,7 @@ export const COMPONENTS = [
       { framework: "Astro", code: animatedSegmentedTabsAstroCode },
     ],
   },
-{
+  {
     title: "Spotlight Card",
     component: SpotlightCard,
     page: "spotlight-card",
@@ -79,7 +93,7 @@ export const COMPONENTS = [
       { framework: "Astro", code: spotlightCardAstroCode },
     ],
   },
-{
+  {
     title: "Infinite carousel",
     component: InfiniteCarousel,
     page: "infinite-carousel",
@@ -102,7 +116,7 @@ export const COMPONENTS = [
 }
 `,
   },
-{
+  {
     title: "Smooth Accordion",
     component: SmoothAccordion,
     page: "smooth-accordion",
@@ -111,7 +125,7 @@ export const COMPONENTS = [
       { framework: "Astro", code: smoothAccordionAstroCode },
     ],
   },
-{
+  {
     title: "Magnetic Hover Button",
     component: MagneticButton,
     page: "magnetic-hover-button",
@@ -120,7 +134,7 @@ export const COMPONENTS = [
       { framework: "Astro", code: magneticButtonAstroCode },
     ],
   },
-{
+  {
     title: "Flip card",
     component: FlipCard,
     page: "flip-card",
@@ -129,7 +143,7 @@ export const COMPONENTS = [
       { framework: "Astro", code: flipCardAstroCode },
     ],
   },
-{
+  {
     title: "Animated background button",
     component: AnimatedBackgroundButton,
     page: "animated-background-button",
@@ -138,7 +152,7 @@ export const COMPONENTS = [
       { framework: "Astro", code: animatedBgAstroCode },
     ],
   },
-{
+  {
     title: "Gradient border button",
     component: GradientBorderButton,
     page: "gradient-border-button",
@@ -147,7 +161,7 @@ export const COMPONENTS = [
       { framework: "Astro", code: gradientBorderAstroCode },
     ],
   },
-{
+  {
     title: "Gradient hover button",
     component: GradientHoverButton,
     page: "gradient-hover-button",
@@ -156,7 +170,7 @@ export const COMPONENTS = [
       { framework: "Astro", code: gradientHoverAstroCode },
     ],
   },
-{
+  {
     title: "Gradient text",
     component: GradientText,
     page: "gradient-text",
@@ -165,7 +179,7 @@ export const COMPONENTS = [
       { framework: "Astro", code: gradientTextAstroCode },
     ],
   },
-{
+  {
     title: "Gradient Loader",
     component: GradientLoader,
     page: "gradient-loader",
@@ -174,7 +188,7 @@ export const COMPONENTS = [
       { framework: "Astro", code: gradientLoaderAstroCode },
     ],
   },
-{
+  {
     title: "Theme switch",
     component: ThemeSwitch,
     page: "theme-switch",

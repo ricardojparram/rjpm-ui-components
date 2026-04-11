@@ -22,14 +22,14 @@ const [ITEM] = COMPONENTS.filter((item) => item.page === page);
     </h1>
   </header>
   <main
-    class="max-w-[1000px] w-full mx-auto p-4 flex flex-col gap-10"
+    class="max-w-250 w-full mx-auto p-4 flex flex-col gap-10"
     transition:animate={fade({ duration: "0.15s" })}
   >
     <section
-      class="min-h-[180px] relative border-2 border-slate-800 rounded-xl hover:border-slate-700 group transition-colors duration-200 flex items-center justify-center p-5 font-sans"
+      class="min-h-45 relative border-2 border-slate-800 rounded-xl hover:border-slate-700 group transition-colors duration-200 flex items-center justify-center p-5 font-sans"
     >
       <div
-        class="absolute h-full w-full pointer-events-none z-0 bg-[radial-gradient(rgb(30,41,59)_1.5px,transparent_1px)] [background-size:20px_20px] [mask-image:radial-gradient(ellipse_47%_47%_at_50%_50%,#000_70%,transparent_100%)] transition-colors"
+        class="absolute h-full w-full pointer-events-none z-0 bg-[radial-gradient(rgb(30,41,59)_1.5px,transparent_1px)] bg-size-[20px_20px] mask-[radial-gradient(ellipse_47%_47%_at_50%_50%,#000_70%,transparent_100%)] transition-colors"
       >
       </div>
       <div class="relative z-10 w-full flex items-center justify-center">
@@ -37,10 +37,6 @@ const [ITEM] = COMPONENTS.filter((item) => item.page === page);
       </div>
     </section>
     <CodeBox files={ITEM.files} />
-    {
-      ITEM.css && (
-        <CodeBox code={ITEM.css} filename="global.css" />
-      )
-    }
+    {ITEM.css && <CodeBox code={ITEM.css} filename="global.css" />}
   </main>
 </Layout>
