@@ -35,8 +35,10 @@ export default function SpotlightCard({ children, className = "" }) {
         <div className="relative z-20">
           {children || (
             <>
-              <h3 className="text-xl font-bold text-slate-200 mb-2">Spotlight Card</h3>
-              <p className="text-slate-400">Notice how the border glows brighter than the inner background.</p>
+              <h3 className="text-xl font-bold text-slate-200 mb-2">Smart Suggestions</h3>
+            <p className="text-slate-400">
+              Unlock AI-powered insights to optimize your daily workflows and boost productivity.
+            </p>
             </>
           )}
         </div>

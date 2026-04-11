@@ -23,10 +23,10 @@ import { fade } from "astro:transitions";
     class="flex flex-col items-center justify-center"
     transition:animate={fade({ duration: "0.15s" })}
   >
-    <section class="w-full h-full mt-12 flex flex-wrap justify-center gap-5">
+    <section class="w-full max-w-6xl mx-auto h-full mt-12 grid grid-flow-row-dense grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-5">
       {
         COMPONENTS.map((item) => (
-          <ComponentCard href={item.page} title={item.title}>
+          <ComponentCard href={item.page} title={item.title} className={item.className || ""}>
             <item.component shadow />
           </ComponentCard>
         ))

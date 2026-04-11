@@ -1,0 +1,118 @@
+---
+const tabs = ["Overview", "Analytics", "Settings"];
+---
+
+<div class="animated-segmented-tabs w-full max-w-xl">
+  <div
+    class="tabs-container relative inline-flex w-full rounded-xl border border-slate-700/80 bg-slate-900/70 p-1 shadow-inner"
+    role="tablist"
+    aria-label="Segmented tabs"
+  >
+    <div
+      class="tab-indicator pointer-events-none absolute top-1 left-0 h-[calc(100%-0.5rem)] rounded-lg bg-slate-100 shadow-sm transition-all duration-300 ease-out"
+      style="width: 0px; transform: translateX(0px);"
+      aria-hidden="true"
+    >
+    </div>
+
+    {
+      tabs.map((tab, index) => (
+        <button
+          type="button"
+          role="tab"
+          data-tab-index={index}
+          aria-selected={index === 0 ? "true" : "false"}
+          aria-controls="segmented-panel"
+          id={`segmented-tab-${index}`}
+          class={`tab-button relative z-10 flex-1 rounded-lg px-4 py-2 text-sm font-medium transition-colors duration-200 ${
+            index === 0
+              ? "text-slate-900"
+              : "text-slate-300 hover:text-slate-100"
+          }`}
+        >
+          {tab}
+        </button>
+      ))
+    }
+  </div>
+
+  <section
+    role="tabpanel"
+    id="segmented-panel"
+    aria-labelledby="segmented-tab-0"
+    class="tab-panel mt-4 rounded-xl border border-slate-800 bg-slate-900/50 p-4 text-sm text-slate-300"
+  >
+    <div class="flex h-24 items-center justify-center rounded-lg border border-dashed border-slate-700 bg-slate-800/50">
+      <p class="text-slate-400">Content for <span class="panel-title font-semibold text-slate-200">Overview</span></p>
+    </div>
+  </section>
+</div>
+
+<script>
+  function initSegmentedTabs() {
+    const tabRoots = document.querySelectorAll(".animated-segmented-tabs");
+
+    tabRoots.forEach((root) => {
+      const container = root.querySelector(".tabs-container");
+      const indicator = root.querySelector(".tab-indicator") as HTMLDivElement | null;
+      const buttons = Array.from(root.querySelectorAll(".tab-button")) as HTMLButtonElement[];
+      const panel = root.querySelector(".tab-panel") as HTMLElement | null;
+      const panelTitle = root.querySelector(".panel-title") as HTMLElement | null;
+
+      if (!container || !indicator || buttons.length === 0) return;
+
+      const updateIndicator = (activeButton: HTMLButtonElement) => {
+        if (!indicator || !activeButton) return;
+        indicator.style.width = `${activeButton.offsetWidth}px`;
+        indicator.style.transform = `translateX(${activeButton.offsetLeft}px)`;
+      };
+
+      const setActiveTab = (activeButton: HTMLButtonElement) => {
+        buttons.forEach((button) => {
+          const isActive = button === activeButton;
+          button.setAttribute("aria-selected", String(isActive));
+          button.classList.toggle("text-slate-900", isActive);
+          button.classList.toggle("text-slate-300", !isActive);
+        });
+
+        if (panel && panelTitle) {
+          const activeLabel = activeButton.textContent?.trim() || "Overview";
+          panel.setAttribute("aria-labelledby", activeButton.id);
+          panelTitle.textContent = activeLabel;
+        }
+
+        updateIndicator(activeButton);
+      };
+
+      const activeOnInit = buttons.find((button) => button.getAttribute("aria-selected") === "true") || buttons[0];
+      setActiveTab(activeOnInit);
+
+      // Re-query buttons if needed, or simply assign listeners (Astro re-executes page-load)
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          setActiveTab(button);
+        });
+      });
+
+      const currentActive = () => buttons.find((button) => button.getAttribute("aria-selected") === "true") || buttons[0];
+
+      const observer = new ResizeObserver(() => {
+         updateIndicator(currentActive());
+      });
+      observer.observe(container);
+
+      if (document.fonts) {
+        document.fonts.ready.then(() => updateIndicator(currentActive()));
+      }
+      setTimeout(() => updateIndicator(currentActive()), 50);
+    });
+  }
+
+  // Handle Astro View Transitions
+  document.addEventListener("astro:page-load", initSegmentedTabs);
+  if (document.readyState === "complete") {
+    initSegmentedTabs();
+  } else {
+    document.addEventListener("DOMContentLoaded", initSegmentedTabs);
+  }
+</script>

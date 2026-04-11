@@ -29,10 +29,12 @@ const [ITEM] = COMPONENTS.filter((item) => item.page === page);
       class="min-h-[180px] relative border-2 border-slate-800 rounded-xl hover:border-slate-700 group transition-colors duration-200 flex items-center justify-center p-5 font-sans"
     >
       <div
-        class="absolute h-full w-full bg-[radial-gradient(rgb(30,41,59)_1.5px,transparent_1px)] [background-size:20px_20px] [mask-image:radial-gradient(ellipse_47%_47%_at_50%_50%,#000_70%,transparent_100%)] transition-colors"
+        class="absolute h-full w-full pointer-events-none z-0 bg-[radial-gradient(rgb(30,41,59)_1.5px,transparent_1px)] [background-size:20px_20px] [mask-image:radial-gradient(ellipse_47%_47%_at_50%_50%,#000_70%,transparent_100%)] transition-colors"
       >
       </div>
-      <ITEM.component />
+      <div class="relative z-10 w-full flex items-center justify-center">
+        <ITEM.component />
+      </div>
     </section>
     <CodeBox files={ITEM.files} />
     {
