@@ -46,6 +46,10 @@ import SmoothAccordion from "../ui/SmoothAccordion/SmoothAccordion.astro";
 import smoothAccordionReactCode from "../ui/SmoothAccordion/SmoothAccordion.jsx?raw";
 import smoothAccordionAstroCode from "../ui/SmoothAccordion/SmoothAccordion.astro?raw";
 
+import MagneticButton from "../ui/MagneticButton/MagneticButton.astro";
+import magneticButtonReactCode from "../ui/MagneticButton/MagneticButton.jsx?raw";
+import magneticButtonAstroCode from "../ui/MagneticButton/MagneticButton.astro?raw";
+
 export const COMPONENTS = [
 {
     title: "Bento Grid",
@@ -105,6 +109,15 @@ export const COMPONENTS = [
     files: [
       { framework: "React", code: smoothAccordionReactCode },
       { framework: "Astro", code: smoothAccordionAstroCode },
+    ],
+  },
+{
+    title: "Magnetic Hover Button",
+    component: MagneticButton,
+    page: "magnetic-hover-button",
+    files: [
+      { framework: "React", code: magneticButtonReactCode },
+      { framework: "Astro", code: magneticButtonAstroCode },
     ],
   },
 {

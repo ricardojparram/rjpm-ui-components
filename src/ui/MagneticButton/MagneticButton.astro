@@ -1,0 +1,51 @@
+---
+const { title = "Magnetic Hover Button" } = Astro.props;
+---
+
+<button
+  type="button"
+  data-magnetic-button
+  class="relative px-8 py-3 rounded-full font-medium text-slate-200 bg-slate-900 border border-slate-700 hover:bg-slate-800 hover:text-white hover:border-slate-500 shadow-[0_0_15px_-3px_rgba(0,0,0,0.4)] transition-colors duration-300"
+>
+  {title}
+</button>
+
+<script>
+  function initMagneticButtons() {
+    const buttons = document.querySelectorAll("[data-magnetic-button]");
+
+    buttons.forEach((button) => {
+      const el = button as HTMLElement;
+      
+      // Prevent duplicate listeners on Astro view transitions
+      if (el.hasAttribute('data-magnetic-bound')) return;
+      el.setAttribute('data-magnetic-bound', 'true');
+
+      el.addEventListener("mousemove", (e) => {
+        // Respect reduced motion settings
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        
+        const rect = el.getBoundingClientRect();
+        const x = (e.clientX - rect.left - rect.width / 2) * 0.3;
+        const y = (e.clientY - rect.top - rect.height / 2) * 0.3;
+
+        // Smooth short transition for tracking so it doesn't teleport
+        el.style.transition = 'transform 0.1s ease-out';
+        el.style.transform = `translate(${x}px, ${y}px)`;
+      });
+
+      el.addEventListener("mouseleave", () => {
+        // Bouncy cubic-bezier spring-back effect on leave
+        el.style.transition = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        el.style.transform = "translate(0px, 0px)";
+      });
+    });
+  }
+
+  document.addEventListener("astro:page-load", initMagneticButtons);
+  if (document.readyState === "complete") {
+    initMagneticButtons();
+  } else {
+    document.addEventListener("DOMContentLoaded", initMagneticButtons);
+  }
+</script>
