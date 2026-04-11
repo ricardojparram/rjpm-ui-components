@@ -36,8 +36,8 @@ const [ITEM] = COMPONENTS.filter((item) => item.page === page);
     </section>
     <CodeBox files={ITEM.files} />
     {
-      ITEM.tailwind && (
-        <CodeBox code={ITEM.tailwind} filename="tailwind.config.mjs" />
+      ITEM.css && (
+        <CodeBox code={ITEM.css} filename="global.css" />
       )
     }
   </main>

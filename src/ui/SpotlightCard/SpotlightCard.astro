@@ -1,0 +1,58 @@
+---
+const { class: className = "" } = Astro.props;
+---
+
+<div
+  class={`spotlight-card relative flex flex-col w-full max-w-lg overflow-hidden rounded-xl bg-slate-800 p-[1px] group min-h-[160px] ${className}`}
+>
+  <div
+    class="spotlight-overlay pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-0"
+  >
+  </div>
+  <div
+    class="relative z-10 flex flex-1 flex-col justify-center rounded-[11px] bg-slate-950 p-8 overflow-hidden"
+  >
+    <div
+      class="spotlight-overlay-inner pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-0"
+    >
+    </div>
+    <div class="relative z-20">
+      <slot>
+        <h3 class="text-xl font-bold text-slate-200 mb-2">Spotlight Card</h3>
+        <p class="text-slate-400">
+          Notice how the border glows brighter than the inner background.
+        </p>
+      </slot>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const cards = document.querySelectorAll(".spotlight-card");
+
+    cards.forEach((card) => {
+      card.addEventListener("mousemove", (e) => {
+        // Cast 'card' to HTMLElement to access bounding rect and styles properly
+        const el = card as HTMLElement;
+        const rect = el.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        // Outer overlay for the border
+        const overlay = el.querySelector(".spotlight-overlay") as HTMLElement;
+        if (overlay) {
+          overlay.style.background = `radial-gradient(400px circle at ${x}px ${y}px, rgba(56, 189, 248, 0.6), transparent 40%)`;
+        }
+
+        // Inner overlay for the background
+        const innerOverlay = el.querySelector(
+          ".spotlight-overlay-inner"
+        ) as HTMLElement;
+        if (innerOverlay) {
+          innerOverlay.style.background = `radial-gradient(400px circle at ${x}px ${y}px, rgba(56, 189, 248, 0.05), transparent 40%)`;
+        }
+      });
+    });
+  });
+</script>

@@ -1,4 +1,4 @@
-import { React, Vue, PgSQL, Nuxt, MySQL, PHP, Tailwind, Nest, Docker, } from "./icons/Icons";
+import { React, Vue, PgSQL, Nuxt, MySQL, PHP, Tailwind, Nest, Docker, } from "../../components/icons/Icons";
 const Icons = [React, Vue, PgSQL, Nuxt, MySQL, PHP, Tailwind, Nest, Docker];
 const InfiniteCarousel = () => {
   return (

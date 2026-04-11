@@ -10,12 +10,11 @@ import { fade } from "astro:transitions";
   <header
     class="text-center p-5 flex flex-col items-center"
     transition:animate={fade({ duration: "0.15s" })}
-    <
   >
     <h1 class="text-4xl text-pretty mt-4 p-2 w-fit font-bold">
       Easy to use component collection <br />
       <span class="text-slate-400 text-xl"
-        >made with <p class="hidden">tailwindcss</p>
+        >made with <span class="sr-only">tailwindcss</span>
         <Tailwindcss class="h-4 text-slate-100 inline" alt="tailwindcss logo" />
       </span>
     </h1>

@@ -1,30 +1,47 @@
-import GradientBorderButton from "../components/GradientBorderButton.jsx";
-import GradientHoverButton from "../components/GradientHoverButton.jsx";
-import AnimatedBackgroundButton from "../components/AnimatedBackgroundButton.jsx";
-import GradientLoader from "../components/GradientLoader.jsx";
-import ThemeSwitch from "../components/ThemeSwitch.astro";
-import GradientText from "../components/GradientText.jsx";
-import FlipCard from "../components/FlipCard.jsx";
-import InfiniteCarousel from "../components/InfiniteCarousel.astro";
-import { getFileContent } from "../util/getFileContent.js";
+import GradientBorderButton from "../ui/GradientBorderButton/GradientBorderButton.jsx";
+import gradientBorderReactCode from "../ui/GradientBorderButton/GradientBorderButton.jsx?raw";
+import gradientBorderAstroCode from "../ui/GradientBorderButton/GradientBorderButton.astro?raw";
 
-const components_dir = "/src/components/";
+import GradientHoverButton from "../ui/GradientHoverButton/GradientHoverButton.jsx";
+import gradientHoverReactCode from "../ui/GradientHoverButton/GradientHoverButton.jsx?raw";
+import gradientHoverAstroCode from "../ui/GradientHoverButton/GradientHoverButton.astro?raw";
+
+import AnimatedBackgroundButton from "../ui/AnimatedBackgroundButton/AnimatedBackgroundButton.jsx";
+import animatedBgReactCode from "../ui/AnimatedBackgroundButton/AnimatedBackgroundButton.jsx?raw";
+import animatedBgAstroCode from "../ui/AnimatedBackgroundButton/AnimatedBackgroundButton.astro?raw";
+
+import GradientLoader from "../ui/GradientLoader/GradientLoader.jsx";
+import gradientLoaderReactCode from "../ui/GradientLoader/GradientLoader.jsx?raw";
+import gradientLoaderAstroCode from "../ui/GradientLoader/GradientLoader.astro?raw";
+
+import ThemeSwitch from "../ui/ThemeSwitch/ThemeSwitch.astro";
+import themeSwitchReactCode from "../ui/ThemeSwitch/ThemeSwitch.jsx?raw";
+import themeSwitchAstroCode from "../ui/ThemeSwitch/ThemeSwitch.astro?raw";
+
+import GradientText from "../ui/GradientText/GradientText.jsx";
+import gradientTextReactCode from "../ui/GradientText/GradientText.jsx?raw";
+import gradientTextAstroCode from "../ui/GradientText/GradientText.astro?raw";
+
+import FlipCard from "../ui/FlipCard/FlipCard.jsx";
+import flipCardReactCode from "../ui/FlipCard/FlipCard.jsx?raw";
+import flipCardAstroCode from "../ui/FlipCard/FlipCard.astro?raw";
+
+import InfiniteCarousel from "../ui/InfiniteCarousel/InfiniteCarousel.astro";
+import infiniteCarouselReactCode from "../ui/InfiniteCarousel/InfiniteCarousel.jsx?raw";
+import infiniteCarouselAstroCode from "../ui/InfiniteCarousel/InfiniteCarousel.astro?raw";
+
+import SpotlightCard from "../ui/SpotlightCard/SpotlightCard.astro";
+import spotlightCardReactCode from "../ui/SpotlightCard/SpotlightCard.jsx?raw";
+import spotlightCardAstroCode from "../ui/SpotlightCard/SpotlightCard.astro?raw";
+
 export const COMPONENTS = [
   {
     title: "Gradient border button",
     component: GradientBorderButton,
     page: "gradient-border-button",
     files: [
-      {
-        framework: "React",
-        code: await getFileContent(components_dir + "GradientBorderButton.jsx"),
-      },
-      {
-        framework: "Astro",
-        code: await getFileContent(
-          components_dir + "GradientBorderButton.astro"
-        ),
-      },
+      { framework: "React", code: gradientBorderReactCode },
+      { framework: "Astro", code: gradientBorderAstroCode },
     ],
   },
   {
@@ -32,16 +49,8 @@ export const COMPONENTS = [
     component: GradientHoverButton,
     page: "gradient-hover-button",
     files: [
-      {
-        framework: "React",
-        code: await getFileContent(components_dir + "GradientHoverButton.jsx"),
-      },
-      {
-        framework: "Astro",
-        code: await getFileContent(
-          components_dir + "GradientHoverButton.astro"
-        ),
-      },
+      { framework: "React", code: gradientHoverReactCode },
+      { framework: "Astro", code: gradientHoverAstroCode },
     ],
   },
   {
@@ -49,18 +58,8 @@ export const COMPONENTS = [
     component: AnimatedBackgroundButton,
     page: "animated-background-button",
     files: [
-      {
-        framework: "React",
-        code: await getFileContent(
-          components_dir + "AnimatedBackgroundButton.jsx"
-        ),
-      },
-      {
-        framework: "Astro",
-        code: await getFileContent(
-          components_dir + "AnimatedBackgroundButton.astro"
-        ),
-      },
+      { framework: "React", code: animatedBgReactCode },
+      { framework: "Astro", code: animatedBgAstroCode },
     ],
   },
   {
@@ -68,14 +67,8 @@ export const COMPONENTS = [
     component: GradientLoader,
     page: "gradient-loader",
     files: [
-      {
-        framework: "React",
-        code: await getFileContent(components_dir + "GradientLoader.jsx"),
-      },
-      {
-        framework: "Astro",
-        code: await getFileContent(components_dir + "GradientLoader.astro"),
-      },
+      { framework: "React", code: gradientLoaderReactCode },
+      { framework: "Astro", code: gradientLoaderAstroCode },
     ],
   },
   {
@@ -83,34 +76,18 @@ export const COMPONENTS = [
     component: ThemeSwitch,
     page: "theme-switch",
     files: [
-      {
-        framework: "React",
-        code: await getFileContent(components_dir + "ThemeSwitch.jsx"),
-      },
-      {
-        framework: "Astro",
-        code: await getFileContent(components_dir + "ThemeSwitch.astro"),
-      },
+      { framework: "React", code: themeSwitchReactCode },
+      { framework: "Astro", code: themeSwitchAstroCode },
     ],
-    tailwind: `export default {
-  // content: [...]
-  darkMode: "selector"
-  // plugins: [...]
-}`,
+    css: `@custom-variant dark (&:where(.dark, .dark *));`,
   },
   {
     title: "Gradient text",
     component: GradientText,
     page: "gradient-text",
     files: [
-      {
-        framework: "React",
-        code: await getFileContent(components_dir + "GradientText.jsx"),
-      },
-      {
-        framework: "Astro",
-        code: await getFileContent(components_dir + "GradientText.astro"),
-      },
+      { framework: "React", code: gradientTextReactCode },
+      { framework: "Astro", code: gradientTextAstroCode },
     ],
   },
   {
@@ -118,14 +95,8 @@ export const COMPONENTS = [
     component: FlipCard,
     page: "flip-card",
     files: [
-      {
-        framework: "React",
-        code: await getFileContent(components_dir + "FlipCard.jsx"),
-      },
-      {
-        framework: "Astro",
-        code: await getFileContent(components_dir + "FlipCard.astro"),
-      },
+      { framework: "React", code: flipCardReactCode },
+      { framework: "Astro", code: flipCardAstroCode },
     ],
   },
   {
@@ -133,28 +104,30 @@ export const COMPONENTS = [
     component: InfiniteCarousel,
     page: "infinite-carousel",
     files: [
-      {
-        framework: "React",
-        code: await getFileContent(components_dir + "InfiniteCarousel.jsx"),
-      },
-      {
-        framework: "Astro",
-        code: await getFileContent(components_dir + "InfiniteCarousel.astro"),
-      },
+      { framework: "React", code: infiniteCarouselReactCode },
+      { framework: "Astro", code: infiniteCarouselAstroCode },
     ],
-    tailwind: `theme: {
-  extend: {
-    animation: {
-      scroll: "scroll 25s linear infinite",
-    },
-    keyframes: {
-      scroll: {
-        from: { transform: "translateX(0)" },
-        to: { transform: "translateX(-100%)" },
-      },
-    },
-  },
-},
+    css: `@theme {
+  --animate-scroll: scroll 25s linear infinite;
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+}
 `,
+  },
+  {
+    title: "Spotlight Card",
+    component: SpotlightCard,
+    page: "spotlight-card",
+    files: [
+      { framework: "React", code: spotlightCardReactCode },
+      { framework: "Astro", code: spotlightCardAstroCode },
+    ],
   },
 ];
