@@ -3,29 +3,36 @@ import ArrowOutward from "../components/icons/ArrowOutward.astro";
 interface Props {
   title: string;
   href?: string;
+  className?: string;
 }
 
-const { href = "#", title } = Astro.props;
+const { href = "#", title, className = "" } = Astro.props;
 ---
 
 <article
-  class="relative w-[330px] h-[330px] bg-slate-950 border-2 border-slate-800 rounded-xl hover:border-slate-700 group transition-colors duration-200"
+  class={`relative flex flex-col w-full h-[330px] bg-slate-950 border-2 border-slate-800 rounded-xl hover:border-slate-700 group transition-colors duration-200 overflow-hidden ${className}`}
 >
+  <!-- Full card clickable background link -->
   <a
-    class="absolute top-0 w-full h-full text-base"
+    class="absolute inset-0 z-0"
     href={href}
     title="Get the code!"
   >
-    <div
-      class="relative w-full px-5 pt-4 flex justify-between items-center text-slate-300 group-hover:text-slate-200 transition-colors duration-200"
-    >
-      <h2 class="font-semibold text-[14px] pr-6 w-full">{title}</h2>
-      <ArrowOutward
-        class="w-5 h-5 absolute top-5 right-4 md:top-6 md:right-5 md:opacity-0 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-150"
-      />
-    </div>
+    <span class="sr-only">View {title}</span>
   </a>
-  <div class="flex items-center justify-center w-full h-full p-5 font-sans">
+  
+  <!-- Header (Takes natural height, pushes content down) -->
+  <header
+    class="relative z-10 w-full px-5 pt-4 pb-2 flex justify-between items-center text-slate-300 group-hover:text-slate-200 transition-colors duration-200 pointer-events-none"
+  >
+    <h2 class="font-semibold text-[14px] pr-6 w-full">{title}</h2>
+    <ArrowOutward
+      class="w-5 h-5 absolute top-5 right-4 md:top-6 md:right-5 md:opacity-0 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-150"
+    />
+  </header>
+
+  <!-- Content Container (Takes remaining space) -->
+  <div class="relative z-10 flex-1 flex items-center justify-center w-full p-5 pt-2 font-sans pointer-events-none [&>*]:pointer-events-auto">
     <slot />
   </div>
 </article>
