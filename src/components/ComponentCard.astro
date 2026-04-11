@@ -10,17 +10,13 @@ const { href = "#", title, className = "" } = Astro.props;
 ---
 
 <article
-  class={`relative flex flex-col w-full h-[330px] bg-slate-950 border-2 border-slate-800 rounded-xl hover:border-slate-700 group transition-colors duration-200 overflow-hidden ${className}`}
+  class={`relative flex flex-col w-full h-82.5 bg-slate-950 border-2 border-slate-800 rounded-xl hover:border-slate-700 group transition-colors duration-200 overflow-hidden ${className}`}
 >
   <!-- Full card clickable background link -->
-  <a
-    class="absolute inset-0 z-0"
-    href={href}
-    title="Get the code!"
-  >
+  <a class="absolute inset-0 z-0" href={href} title="Get the code!">
     <span class="sr-only">View {title}</span>
   </a>
-  
+
   <!-- Header (Takes natural height, pushes content down) -->
   <header
     class="relative z-10 w-full px-5 pt-4 pb-2 flex justify-between items-center text-slate-300 group-hover:text-slate-200 transition-colors duration-200 pointer-events-none"
@@ -32,7 +28,9 @@ const { href = "#", title, className = "" } = Astro.props;
   </header>
 
   <!-- Content Container (Takes remaining space) -->
-  <div class="relative z-10 flex-1 flex items-center justify-center w-full p-5 pt-2 font-sans pointer-events-none [&>*]:pointer-events-auto">
+  <div
+    class="relative z-10 flex-1 flex items-center justify-center w-full p-5 pt-2 font-sans pointer-events-none *:pointer-events-auto"
+  >
     <slot />
   </div>
 </article>
